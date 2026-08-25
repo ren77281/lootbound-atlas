@@ -1,0 +1,48 @@
+---
+title: "Lootbound Item Aura and Adjacency Mechanics"
+description: "Understand Lootbound aura and adjacency decisions with a practical placement framework that clearly separates confirmed systems from unverified details."
+category: "mechanics"
+image: '../../../../assets/covers/en-mechanics-item-aura-adjacency.png'
+date: 2026-08-25
+lastModified: 2026-08-25
+tags: ["auras", "adjacency", "inventory", "testing"]
+draft: false
+summary: "Map an aura from the wording visible in the current build, then place only equipment that can actually benefit inside its affected area. Optimize the output of the full cluster rather than the aura source alone. When an interaction is unclear, move one item at a time and record the before-and-after result."
+---
+
+import Callout from '~/components/mdx/Callout.astro';
+
+<Callout type="info" title="Verification status">Interaction-driven placement is confirmed. Per-item coverage diagrams, stacking rules, and exact ranges remain unpublished until captured and reproduced in game.</Callout>
+
+## How do aura and adjacency effects change placement?
+
+They convert location into power, so begin with the exact wording visible in the current build and map only the cells or neighbors it clearly affects. Do not assume diagonal coverage, distance, or stacking behavior unless a tooltip or controlled comparison demonstrates the rule under the same conditions.
+
+## How does the anchor-and-beneficiary method work?
+
+Choose the effect that defines the cluster as its anchor, then identify the equipment that can actually receive value from it. This prevents a tidy-looking layout from hiding wasted coverage on empty cells or pieces that do not benefit.
+
+1. Select the synergy-defining effect as the anchor.
+2. List every piece that can benefit from that effect.
+3. Place the least flexible beneficiary first.
+4. Compare the gained effect with the inventory space consumed.
+
+Review the [inventory rotation guide](/mechanics/inventory-grid-item-rotation) before rebuilding a large cluster.
+
+## How can you test an unclear interaction?
+
+Keep every variable fixed except one placement. Record the relevant before value, move or rotate one item, and observe the after value under the same conditions. Repeat the test before treating the result as a stable rule.
+
+- Capture the tooltip and full inventory in the same record.
+- Note the game version and test date.
+- Avoid combining several new effects in one test.
+- Mark the result as confirmed, inconsistent, or still unknown.
+
+## What evidence is still needed?
+
+The next evidence layer should include cell-by-cell diagrams, stacking checks, rotation comparisons, and screenshots tied to a visible game version. Until those tests exist, this page avoids universal claims about range, direction, or whether multiple copies stack.
+
+## Sources
+
+- [Lootbound on Steam](https://store.steampowered.com/app/3091140/Lootbound/)
+- [Steam Community Guides](https://steamcommunity.com/app/3091140/guides/)
