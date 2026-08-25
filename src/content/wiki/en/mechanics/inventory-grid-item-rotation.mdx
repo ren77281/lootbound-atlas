@@ -1,0 +1,51 @@
+---
+title: "Lootbound Inventory Grid and Item Rotation Guide"
+description: "Learn how Lootbound inventory space and item rotation shape placement decisions without relying on unverified item dimensions or values."
+category: "mechanics"
+image: '../../../../assets/covers/en-mechanics-inventory-grid-item-rotation.png'
+date: 2026-08-25
+lastModified: 2026-08-25
+tags: ["inventory", "rotation", "placement", "beginner"]
+draft: false
+summary: "Treat the Lootbound inventory as both storage and a build board. Place constrained or synergy-defining shapes first, rotate every candidate before rejecting it, and preserve one continuous open region for future rewards. After each move, re-check every relevant adjacency or aura because a better fit can still weaken the full cluster."
+---
+
+import Callout from '~/components/mdx/Callout.astro';
+
+<Callout type="info" title="Verification status">The inventory grid and item rotation are confirmed systems. Exact item shapes and dimensions are intentionally omitted until captured from the current game build.</Callout>
+
+## How should you organize the Lootbound inventory grid?
+
+Think in shapes, anchors, and exits. The anchor is the piece whose location matters most because of its shape or interaction. The exit is a continuous open region that can accept a useful future pickup. Protecting both usually creates a stronger plan than filling every isolated cell immediately.
+
+## What placement order works consistently?
+
+Place the least flexible pieces first, then build outward from the interaction that defines the setup. This order reduces avoidable rebuilds while leaving room for rewards that have not appeared yet.
+
+1. Place the most constrained or synergy-defining item.
+2. Add pieces whose adjacency is required for the plan.
+3. Use flexible items to fill around that core.
+4. Rotate each candidate before rejecting it.
+5. Leave a rebuild lane for the next room's reward.
+
+## When does rotation weaken a layout?
+
+Rotation can solve a space problem while creating a relationship problem. After rotating a piece, scan every touching edge and aura zone again. Compare the before-and-after contribution of the cluster, not only the number of cells saved or the value shown on one isolated item.
+
+If two layouts appear equal, prefer the one with the larger continuous empty area. It will usually accept more future shapes.
+
+## Which packing traps should you avoid?
+
+Most early mistakes come from optimizing the current screenshot instead of the next decision. Avoid layouts that are technically full but difficult to extend.
+
+- Filling every gap too early.
+- Improving one item's position while weakening the cluster.
+- Creating narrow pockets that only one shape can use.
+- Rebuilding the full pack without recording what already worked.
+
+Continue with the [aura and adjacency guide](/mechanics/item-aura-adjacency) when placement effects begin to define the build.
+
+## Sources
+
+- [Lootbound on Steam](https://store.steampowered.com/app/3091140/Lootbound/)
+- [ArtDock — Lootbound](https://games.artdock.studio/lootbound)
