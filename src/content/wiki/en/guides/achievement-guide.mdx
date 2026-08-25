@@ -1,0 +1,46 @@
+---
+title: "Lootbound Achievement Guide and Verification Tracker"
+description: "Track Lootbound achievements without guessed unlock conditions, using a clear process for confirming visible requirements and hidden triggers."
+category: "guides"
+image: '../../../../assets/covers/en-guides-achievement-guide.png'
+date: 2026-08-25
+lastModified: 2026-08-25
+tags: ["achievements", "completion", "steam", "testing"]
+draft: false
+summary: "Use the live Steam achievement panel as the catalog authority, then verify unclear unlocks by changing one variable per attempt. Record the game version, visible description, action before the unlock, and whether Steam synchronized it. Until the current catalog is captured and reproduced, this tracker deliberately avoids guessed names or requirements."
+---
+
+import Callout from '~/components/mdx/Callout.astro';
+
+<Callout type="warn" title="Incomplete by design">The current catalog and hidden conditions still require direct capture. This page does not publish guessed achievement names or unlock requirements.</Callout>
+
+## How should Lootbound achievements be verified?
+
+Treat the live Steam achievement panel as the catalog authority, then reproduce uncertain requirements in the current game build. A fabricated condition wastes more player time than an incomplete list, so named entries should only appear after the visible catalog is captured and ambiguous triggers are tested cleanly.
+
+## What belongs in an achievement record?
+
+A useful record preserves enough context for another player to repeat the test. Capture both successful and unsuccessful attempts so a coincidence is not mistaken for the real trigger.
+
+| Field | What to record |
+| --- | --- |
+| Catalog | Achievement name and visible description |
+| Visibility | Whether Steam marks it hidden or visible |
+| Version | Game build and test date |
+| Trigger | Action immediately before the unlock |
+| Sync | Whether the in-game notice and Steam profile updated together |
+
+## How do you test an ambiguous condition?
+
+Change one variable per attempt. If an unlock could depend on route, companion, inventory state, or Guardian setup, keep the other three stable. This isolates the likely cause and creates a record that remains useful when a patch changes one part of the system.
+
+Use the [first-run guide](/guides/first-run-guide) for the same version-recording discipline when reporting a mechanic or bug.
+
+## What is the current tracker status?
+
+The verification framework is ready, but the per-achievement table remains withheld until it can cite the current catalog and reproducible observations. Steam Community Guides can suggest tests, but they are leads rather than automatic proof.
+
+## Sources
+
+- [Lootbound on Steam](https://store.steampowered.com/app/3091140/Lootbound/)
+- [Steam Community Guides](https://steamcommunity.com/app/3091140/guides/)
