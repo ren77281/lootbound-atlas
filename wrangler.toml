@@ -1,10 +1,10 @@
 # ⚠️⚠️⚠️ FORKERS READ THIS FIRST ⚠️⚠️⚠️
 #
-# This wrangler.toml contains the DEMO SITE config (anvilwiki.pages.dev).
-# The [vars] below point at PNGTRID/AnvilWiki's own GitHub Discussions.
+# This wrangler.toml contains this site's deployment configuration.
+# The [vars] below are the source of truth for Cloudflare Pages.
 #
-# When you fork: EITHER
-#   (A) Edit the [vars] values below to your own (SITE_URL + GISCUS_*), OR
+# When deploying: EITHER
+#   (A) Keep the [vars] values below current, OR
 #   (B) Delete this file (`git rm wrangler.toml && git commit`) and configure
 #       env vars in the Cloudflare dashboard instead.
 #
@@ -35,12 +35,12 @@ pages_build_output_dir = "dist"
 
 [vars]
 # Site (must include https:// protocol — Astro validates this as a URL)
-SITE_URL = "https://anvilwiki.pages.dev"
-# Giscus comments (DEMO — anvilwiki.pages.dev points at PNGTRID/AnvilWiki Discussions)
-PUBLIC_GISCUS_REPO = "PNGTRID/AnvilWiki"
-PUBLIC_GISCUS_REPO_ID = "R_kgDOT1aRPQ"
-PUBLIC_GISCUS_CATEGORY = "Announcements"
-PUBLIC_GISCUS_CATEGORY_ID = "DIC_kwDOT1aRPc4DDODo"
+SITE_URL = "https://gamefieldhq.com"
+# Giscus comments — blank = disabled until configured for this repository.
+PUBLIC_GISCUS_REPO = ""
+PUBLIC_GISCUS_REPO_ID = ""
+PUBLIC_GISCUS_CATEGORY = ""
+PUBLIC_GISCUS_CATEGORY_ID = ""
 PUBLIC_GISCUS_MAPPING = "pathname"
 # Sponsor card (empty = disabled, keeps Lighthouse 4×100 out of the box)
 PUBLIC_SPONSOR_URL = ""
