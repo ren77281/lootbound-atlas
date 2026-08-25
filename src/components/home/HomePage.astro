@@ -53,6 +53,26 @@ const popular = home.popular ?? { quickLinks: [] };
 const explore = home.explore ?? { modules: [] };
 const closingCta = home.closingCta ?? {};
 
+type Cta = string | { label: string; href: string };
+function resolveCta(cta: Cta | undefined, fallbackHref: string) {
+  if (!cta) return null;
+  return typeof cta === 'string' ? { label: cta, href: fallbackHref } : cta;
+}
+function externalLinkAttrs(href: string) {
+  return /^https?:\/\//.test(href) ? { target: '_blank' as const, rel: 'noopener noreferrer' } : {};
+}
+function localizedHref(href: string) {
+  return /^https?:\/\//.test(href) ? href : localizePath(href, locale);
+}
+
+const heroPrimary = resolveCta(hero.ctaPrimary, site.social.official);
+const heroSecondary = resolveCta(
+  hero.ctaSecondary,
+  listPath(NAVIGATION_CONFIG[0]?.key ?? 'guides', locale),
+);
+const closingPrimary = resolveCta(closingCta.primary, site.social.official);
+const closingSecondary = resolveCta(closingCta.secondary, site.social.discord ?? '');
+
 // QuickLink may be a string or { label, href } — normalize for the sidebar list.
 type QuickLink = string | { label: string; href: string };
 const trendingLinks: QuickLink[] = Array.isArray(popular.quickLinks) ? popular.quickLinks : [];
@@ -97,22 +117,25 @@ function trendingLabel(link: QuickLink): string {
       <p class="mt-5 max-w-xl text-base text-muted-foreground md:text-lg">{hero.description}</p>
       <div class="mt-8 flex flex-wrap gap-3">
         {
-          hero.ctaPrimary && (
+          heroPrimary && (
             <a
-              href={site.social.official}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={localizedHref(heroPrimary.href)}
+              {...externalLinkAttrs(heroPrimary.href)}
               class="btn-primary"
             >
               <Icon name="lucide:play" class="mr-2 h-4 w-4" />
-              {hero.ctaPrimary}
+              {heroPrimary.label}
             </a>
           )
         }
         {
-          hero.ctaSecondary && (
-            <a href={listPath(NAVIGATION_CONFIG[1]?.key ?? 'guides', locale)} class="btn-outline">
-              {hero.ctaSecondary}
+          heroSecondary && (
+            <a
+              href={localizedHref(heroSecondary.href)}
+              {...externalLinkAttrs(heroSecondary.href)}
+              class="btn-outline"
+            >
+              {heroSecondary.label}
             </a>
           )
         }
@@ -222,22 +245,22 @@ function trendingLabel(link: QuickLink): string {
           <h2 class="text-2xl font-bold md:text-3xl">{closingCta.title}</h2>
           <p class="mx-auto mt-2 max-w-xl text-muted-foreground">{closingCta.description}</p>
           <div class="mt-6 flex justify-center gap-3">
-            <a
-              href={site.social.official}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn-primary"
-            >
-              {closingCta.primary}
-            </a>
-            {closingCta.secondary && site.social.discord && (
+            {closingPrimary && (
               <a
-                href={site.social.discord}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={localizedHref(closingPrimary.href)}
+                {...externalLinkAttrs(closingPrimary.href)}
+                class="btn-primary"
+              >
+                {closingPrimary.label}
+              </a>
+            )}
+            {closingSecondary?.href && (
+              <a
+                href={localizedHref(closingSecondary.href)}
+                {...externalLinkAttrs(closingSecondary.href)}
                 class="btn-outline"
               >
-                {closingCta.secondary}
+                {closingSecondary.label}
               </a>
             )}
           </div>
