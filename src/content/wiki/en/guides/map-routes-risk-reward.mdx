@@ -4,19 +4,36 @@ description: "Plan Lootbound routes and risk-reward room choices with a repeatab
 category: "guides"
 image: '../../../../assets/covers/en-guides-map-routes-risk-reward.png'
 date: 2026-08-25
-lastModified: 2026-08-25
+lastModified: 2026-08-26
 tags: ["routes", "risk", "rooms", "strategy"]
 draft: false
+gameVersion: "1.1.7+"
 summary: "Choose a Lootbound route by naming the run's current bottleneck, then compare each branch by immediate value, future option value, and failure cost. Higher variance is reasonable when a safe path cannot produce enough power or the build can absorb failure. Record the choice before seeing the result to avoid hindsight bias."
 ---
 
 import Callout from '~/components/mdx/Callout.astro';
 
-<Callout type="info" title="Verification status">Branching adventure and risk-reward choices are confirmed. Room-by-room reward tables remain withheld until they can be checked against the current version.</Callout>
+<Callout type="info" title="Verification status">Steam confirms route choices that lead toward loot and special rooms with several reward difficulties. Patch 1.1.7 also confirms a common-reward option versus a dice chance at something better. Exact room pools and hidden odds remain withheld because the official sources do not publish them.</Callout>
+
+## What is confirmed about Lootbound routes?
+
+The official Steam description establishes the basic route loop without publishing a fixed map. A run starts with one hero, branches across a map toward valuable loot, adds companions along the way, and presents special rooms where more valuable rewards carry harder dice requirements. This supports a decision framework, but not a universal room ranking.
+
+Patch 1.1.7 adds another confirmed risk choice during item selection: take one common reward or roll for a chance at something better. The notes do not disclose the odds, reward pool, or how much better the risky outcome can be. Treat the safe option as known value and the dice option as unresolved variance, not as a guaranteed upgrade.
 
 ## How should you choose a Lootbound route?
 
 Pause at the branch and name the limiting factor: weak output, low durability, poor space efficiency, missing synergy, or excessive uncertainty. Prefer the room that addresses that constraint. A route that delays it needs enough upside or flexibility to justify the opportunity cost.
+
+Use this order before comparing reward rarity:
+
+1. **Survival:** can the party absorb the branch's visible failure cost?
+2. **Immediate fit:** can the likely reward help the current hero or a recruited companion now?
+3. **Inventory cost:** is there active space without breaking a stronger aura or layout?
+4. **Future flexibility:** does the choice preserve more than one workable direction?
+5. **Boss preparation:** does the branch address a known Guardian or resource problem?
+
+The [Guardian preparation guide](/mechanics/guardian-parts-final-boss) explains the final check, while the [companion guide](/mechanics/companion-system) covers why a reward that fits one party inventory may be awkward in another.
 
 ## How can you compare two branches?
 
@@ -28,11 +45,43 @@ Score each branch in three layers instead of looking only at its largest reward.
 | Option value | Does the result keep several future plans open? |
 | Failure cost | Can the run continue if the outcome is poor? |
 
+Add a fourth comparison when inventory space is already tight:
+
+| Space test | Question to ask |
+| --- | --- |
+| Active fit | Can the reward enter an active inventory without removing more value than it adds? |
+| Reserve fit | Can it be stored as a real alternative rather than forcing an immediate rebuild? |
+| Party fit | Does another party member have a better role and shape for it? |
+
+A reward can be powerful in isolation and still be the wrong branch when its shape dismantles the current engine. Review the [inventory grid guide](/mechanics/inventory-grid-item-rotation) before assuming rarity is more important than usable cells.
+
 ## When is extra risk justified?
 
 Higher variance is rational when a safe route is unlikely to create enough power for the next major check, or when the current build has enough redundancy to survive a poor result. It is less attractive when one failure would dismantle a coherent setup.
 
 Use the [dice mechanics guide](/mechanics/dice-roll-mechanics) to separate decision quality from the final roll.
+
+## When should you take the common reward in Patch 1.1.7?
+
+Prefer the guaranteed common reward when the run needs usable value now, a poor result would end the run, or the build already has a coherent plan that does not require a high-tier rescue. The common option is also useful when you are still learning item shapes and interactions because it reduces one source of variance.
+
+Consider the dice option when the safe reward cannot solve the current bottleneck and the run can survive failure. The decision should still use the displayed difficulty and the actual character-die faces. “The rare reward looks better” is not enough if the selected die cannot cover the remaining gap after the D20 result.
+
+<Callout type="warn" title="No published drop odds">Do not convert the words “chance at something better” into an invented percentage. Log the displayed target, both visible choices, the D20 result, the selected character die, and the final reward if you want evidence that can be compared across runs.</Callout>
+
+## How does party state change the route choice?
+
+The same branch can be correct for one run and wrong for another. Use the current state, not a remembered tier list:
+
+| Run state | Route bias |
+| --- | --- |
+| Stable inventories and healthy party | Preserve flexibility or take measured upside |
+| One member is falling behind | Prefer a branch that can repair that role soon |
+| Strong engine but low resources | Protect the engine and rebuild the resource buffer |
+| Safe reward cannot meet the next check | Accept more variance only if failure remains survivable |
+| Layout is full and fragile | Value compatible shapes and reserve space over headline rarity |
+
+This table is a decision aid, not a room catalog. It deliberately avoids claiming that a named room always offers a particular reward.
 
 ## How do you build a useful route log?
 
@@ -43,7 +92,10 @@ Write down the alternatives and your reason before seeing the outcome. That pres
 3. Record the result without rewriting the original reasoning.
 4. Separate a poor decision from a reasonable decision with a poor roll.
 
+Add the game version whenever a patch changes reward selection or difficulty. After several comparable entries, look for repeated failure modes—space collapse, unsupported companions, resource depletion, or dice choices that could not cover the target—rather than ranking routes by win rate from a tiny sample.
+
 ## Sources
 
 - [Lootbound on Steam](https://store.steampowered.com/app/3091140/Lootbound/)
 - [ArtDock — Lootbound](https://games.artdock.studio/lootbound)
+- [Official Lootbound Patch 1.1.7 announcement](https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1840944183788376)
