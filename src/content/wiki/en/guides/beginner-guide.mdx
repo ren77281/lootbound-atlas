@@ -1,54 +1,117 @@
 ---
-title: "Lootbound Beginner Guide"
-description: "A source-aware Lootbound beginner guide to inventory planning, route choices, companions, dice risks, and preparing for later encounters."
-category: "guides"
+title: 'Lootbound Beginner Guide: Builds, Routes, Dice, and Progression'
+description: 'Start stronger Lootbound runs with a practical plan for active inventory space, AI companions, map routes, D20 checks, crystals, and Hub upgrades.'
+category: 'guides'
 image: '../../../../assets/covers/en-guides-beginner-guide.png'
 date: 2026-08-25
 lastModified: 2026-08-25
-tags: ["beginner", "inventory", "routes", "companions"]
+tags: ['beginner', 'inventory', 'routes', 'companions']
 draft: false
-summary: "Start a Lootbound run by treating every pickup as both a space decision and a build decision. Keep part of the inventory flexible, choose routes that solve the run's current bottleneck, and use uncertain outcomes only when the setup can absorb failure. Review each run for lessons, not just wins."
+summary: "A strong Lootbound run starts with one clear plan, not a full inventory. Let active items support the hero's abilities, recruit companions for the party's immediate weakness, and choose map fights with both survival and crystal income in mind. On dice checks, compare the target gap with the actual faces on the character die before taking the reward risk."
+videos: ['WlfN20WF_us']
 ---
 
 import Callout from '~/components/mdx/Callout.astro';
+import Video from '~/components/mdx/Video.astro';
 
-<Callout type="info" title="Verification status">Core systems are confirmed by official descriptions. Exact item values and interactions still require dated, versioned in-game evidence.</Callout>
+## What should a Lootbound beginner understand first?
 
-## How should a beginner plan a Lootbound run?
+Lootbound is a turn-based tactical roguelite where every expedition grows from one hero into a party. The official description ties success to route selection, fights, companions, loot, limited resources, and boss preparation. These systems are connected: a risky map choice changes the rewards available, rewards reshape the inventory, and the inventory changes what the party can survive next.
 
-Reduce each decision to four questions: does the item fit, does its position improve the pack, does the route support the current plan, and can the run absorb the next risk? Lootbound links inventory space, equipment interactions, companions, branching routes, and dice-driven uncertainty, so no pickup should be judged alone.
+Use this decision order when the game presents several attractive options:
 
-## How do you build a readable inventory?
+1. Can the party survive the next fight?
+2. Does the reward strengthen the current plan immediately?
+3. Can the active inventory fit it without breaking a better interaction?
+4. Does the route advance a permanent or run-specific goal?
+5. If the choice is random, what exact result is needed to succeed?
 
-Keep enough open space to rotate or replace equipment after the next reward. A completely filled pack may look efficient, but it can make a valuable pickup impossible to use without dismantling the layout that already works.
+The [first-run guide](/guides/first-run-guide) is a spoiler-light setup and observation checklist. This guide instead explains how to make the recurring decisions inside a run.
 
-1. Place the most position-sensitive piece first.
-2. Keep flexible or low-commitment items near open edges.
-3. Re-check adjacency after every rotation or replacement.
-4. Compare the contribution of the whole cluster, not one tooltip.
+## How should you build the starting hero?
 
-The [inventory grid and rotation guide](/mechanics/inventory-grid-item-rotation) explains this placement process in more detail.
+Attacks come from abilities, while ordinary equipment sits in the active inventory and contributes its shown stats. That means a weapon is not selected as the one equipped weapon: several weapons can add value at the same time if their stats support the abilities and damage plan you are using.
 
-## Which route should you choose?
+Start with one sentence that defines the build, such as “survive long fights,” “act earlier,” or “increase slash damage.” Then ask whether each active item serves that sentence. Put speculative pieces in reserve storage until their interaction is actually available.
 
-Choose the branch that addresses the run's current bottleneck: space, survivability, damage, companion support, or uncertainty. When the pack is unstable, preserve options. When the build already has a clear engine, more risk may be justified if the reward reinforces that engine.
+<Callout type="tip" title="Use the reserve">
+  Lootbound has separate storage for extra items, but stored pieces do not add to the active
+  character's stats. Use it to preserve alternatives without weakening the current layout.
+</Callout>
 
-Use the [route and risk-reward checklist](/guides/map-routes-risk-reward) before committing to a branch.
+The [inventory grid and rotation guide](/mechanics/inventory-grid-item-rotation) explains active versus reserve storage, irregular item shapes, and amulet placement in detail.
 
-## How should you evaluate dice-driven risk?
+## How do you recruit the right companion?
 
-Judge a roll by its upside, its worst visible outcome, and whether a safer route can reach the same goal. A good decision can still fail, so record what was known before the roll instead of treating the result as proof that the choice was right or wrong.
+Companions join during a run and fight under AI control. Current gameplay footage shows the player choosing one recruit from a presented group, then building the party over time. Because companions are not directly controlled in battle, judge them by what their abilities, stats, and inventory add without requiring perfect manual timing.
 
-## What should you review after a run?
+Choose for the party's immediate bottleneck:
 
-A short review turns an unsuccessful attempt into reusable knowledge. Keep the questions consistent so you can compare runs without inventing conclusions from one unusual result.
+| Current problem                | Companion direction to prefer                             |
+| ------------------------------ | --------------------------------------------------------- |
+| Hero is taking too much damage | A tougher role that can absorb pressure                   |
+| Fights last too long           | A damage-oriented role that improves output               |
+| Build is inconsistent          | A role whose abilities work with items already owned      |
+| Hero inventory is overcrowded  | A companion who can use transferred equipment effectively |
 
-- Which item or companion defined the plan?
-- Where did the pack stop being flexible?
-- Which route choice created the most avoidable risk?
-- Did the final setup have one clear purpose?
+Every companion has an inventory, so recruitment creates a second build problem rather than only adding a passive bonus. Items can be moved between inventories, but companions cannot use consumables according to the current public gameplay analysis. See the [companion system guide](/mechanics/companion-system) before optimizing a no-death completion attempt.
+
+## How should you choose a map route?
+
+ArtDock describes Lootbound's map as directed route choices between encounters, risks, rewards, and progression points. Public gameplay analysis also reports that fights award crystals used for permanent upgrades, so a combat-heavy route can create more long-term progress even when two runs reach a similar distance.
+
+That does not mean “take every fight.” Compare the value of another crystal-producing encounter with the cost of entering the boss in a weakened state. A useful route check is:
+
+- **Build need:** does this branch offer the kind of reward the current setup lacks?
+- **Party state:** can every important member survive the extra encounter?
+- **Long-term value:** is crystal income worth the additional failure risk?
+- **Boss readiness:** will this branch leave enough resources for the expedition's major threat?
+
+Use the [route risk-and-reward guide](/guides/map-routes-risk-reward) for a more detailed branch checklist.
+
+## How do Lootbound dice checks work?
+
+The current public mechanics demonstration shows a two-stage item check:
+
+1. The reward displays a difficulty target.
+2. The game rolls a D20 against that target.
+3. If the D20 is short, a selected character die can add to the result.
+
+Character dice are D6-shaped but do not have to use ordinary 1–6 faces. Examples shown in the analysis include dice with zeroes, repeated values, or a high value such as 10. That creates a real tradeoff between consistency and a small chance of covering a large gap.
+
+Suppose the D20 misses the target by four. A die whose faces are mostly threes cannot rescue the check, even though it is consistent. A die with one high face may succeed, but only when that face appears. Compare the **remaining gap** with the **actual six faces** instead of labeling one die universally best.
+
+The [dice mechanics guide](/mechanics/dice-roll-mechanics) covers this decision in more detail.
+
+<Video
+  id="WlfN20WF_us"
+  title="Lootbound inventory, companions, amulets, dice, and permanent progression"
+/>
+
+## What should you buy with crystals?
+
+Current gameplay footage says fights award crystals, which can fund permanent improvements including thorns, slash damage, initiative, turn order, and critical chance. Initiative is described as improving the chance to act earlier, while slash damage can bypass armor.
+
+Early purchases should reinforce the hero and abilities you are actually learning. Spreading currency across unrelated upgrades makes it harder to tell which improvement changed the run. One Steam achievement, **Trained Recruit**, also asks you to buy every upgrade for a single hero in the Barracks, so concentrating on one hero can serve both learning and completion progress.
+
+For the full current achievement catalog, see the [Lootbound achievements guide](/guides/achievement-guide).
+
+## What should you review after each run?
+
+Use a short, repeatable review rather than judging the run only as a win or loss:
+
+- Which ability or item interaction was the actual engine?
+- Which active item consumed more space than value?
+- Did the chosen companion solve the problem present at recruitment time?
+- Which map fight produced useful progression, and which only drained resources?
+- On failed dice checks, was the chosen die capable of covering the remaining gap?
+- Which permanent upgrade would make the next attempt more consistent?
+
+This creates actionable knowledge for the next run without assuming that one lucky result proves a universal best build.
 
 ## Sources
 
-- [Lootbound on Steam](https://store.steampowered.com/app/3091140/Lootbound/)
 - [ArtDock — Lootbound](https://games.artdock.studio/lootbound)
+- [Lootbound on Steam](https://store.steampowered.com/app/3091140/Lootbound/)
+- [Steam Global Achievements — Lootbound](https://steamcommunity.com/stats/3091140/achievements)
+- [Game Design Library — Five Lootbound mechanics](https://www.youtube.com/watch?v=WlfN20WF_us) — inventory at 0:05, companions at 1:42, dice at 4:34, and permanent progression at 6:22
