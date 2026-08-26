@@ -1,51 +1,96 @@
 ---
-title: "Lootbound Inventory Grid and Item Rotation Guide"
-description: "Learn how Lootbound inventory space and item rotation shape placement decisions without relying on unverified item dimensions or values."
-category: "mechanics"
+title: 'Lootbound Inventory Grid and Item Rotation Guide'
+description: "Learn how Lootbound's active inventory, reserve storage, item shapes, rotation, companion bags, and amulet adjacency affect every build decision."
+category: 'mechanics'
 image: '../../../../assets/covers/en-mechanics-inventory-grid-item-rotation.png'
 date: 2026-08-25
 lastModified: 2026-08-25
-tags: ["inventory", "rotation", "placement", "beginner"]
+tags: ['inventory', 'rotation', 'placement', 'amulets']
 draft: false
-summary: "Treat the Lootbound inventory as both storage and a build board. Place constrained or synergy-defining shapes first, rotate every candidate before rejecting it, and preserve one continuous open region for future rewards. After each move, re-check every relevant adjacency or aura because a better fit can still weaken the full cluster."
+summary: 'Lootbound has no conventional equipment slots: non-ability items placed in the active inventory contribute their shown stats, even when several are weapons. Rotate awkward shapes to preserve usable space, keep situational pieces in reserve storage, and rebuild around amulets that strengthen touching items. Re-check the whole layout whenever a companion or reward changes the plan.'
+videos: ['WlfN20WF_us']
 ---
 
-import Callout from '~/components/mdx/Callout.astro';
+import Video from '~/components/mdx/Video.astro';
 
-<Callout type="info" title="Verification status">The inventory grid and item rotation are confirmed systems. Exact item shapes and dimensions are intentionally omitted until captured from the current game build.</Callout>
+## How does the Lootbound inventory work?
 
-## How should you organize the Lootbound inventory grid?
+Lootbound treats the active inventory as the character's equipment screen and build board at the same time. Public gameplay footage shows that weapons, helmets, boots, and other non-ability items all occupy grid cells and contribute their displayed stats while they remain in that active inventory. There is no single weapon slot to choose: multiple weapons can contribute at once because attacks come from abilities rather than a held weapon.
 
-Think in shapes, anchors, and exits. The anchor is the piece whose location matters most because of its shape or interaction. The exit is a continuous open region that can accept a useful future pickup. Protecting both usually creates a stronger plan than filling every isolated cell immediately.
+| Area or item type   | What it does                                                       | Planning consequence                                                     |
+| ------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| Active inventory    | Holds stat-contributing items                                      | Every occupied cell must justify its space                               |
+| Reserve storage     | Holds extra items without adding their stats                       | Save alternatives for later swaps instead of forcing them into the build |
+| Abilities           | Used to attack and act in combat                                   | They are not packed like ordinary equipment                              |
+| Companion inventory | Gives each companion its own item space                            | Party members need separate layouts; companions cannot use consumables   |
+| Amulets             | Buff touching items, with eligible targets depending on the amulet | Placement and contact edges can matter as much as raw item stats         |
 
-## What placement order works consistently?
+<Video
+  id="WlfN20WF_us"
+  title="Five Lootbound mechanics, including inventory, companions, amulets, and dice"
+/>
 
-Place the least flexible pieces first, then build outward from the interaction that defines the setup. This order reduces avoidable rebuilds while leaving room for rewards that have not appeared yet.
+## Why do item shapes matter?
 
-1. Place the most constrained or synergy-defining item.
-2. Add pieces whose adjacency is required for the plan.
-3. Use flexible items to fill around that core.
-4. Rotate each candidate before rejecting it.
-5. Leave a rebuild lane for the next room's reward.
+Items occupy different arrangements of grid squares. Two items can use the same number of cells yet have very different packing costs: a compact block fits many open regions, while an irregular shape can split the remaining space into pockets that no future reward can use.
 
-## When does rotation weaken a layout?
+Rotation changes the geometry but not the underlying item. Before discarding a strong reward, rotate it through every allowed orientation and test it against the continuous empty region—not just the first visible gap. A layout with two empty cells in separate corners is less flexible than a layout with the same two cells touching.
 
-Rotation can solve a space problem while creating a relationship problem. After rotating a piece, scan every touching edge and aura zone again. Compare the before-and-after contribution of the cluster, not only the number of cells saved or the value shown on one isolated item.
+## What placement order should you use?
 
-If two layouts appear equal, prefer the one with the larger continuous empty area. It will usually accept more future shapes.
+Use a consistent five-step rebuild whenever a reward or companion changes the setup:
 
-## Which packing traps should you avoid?
+1. **Choose the active engine.** Decide which ability, damage type, defense plan, or amulet interaction the inventory is supporting.
+2. **Place the most constrained shape.** Start with the item that has the fewest useful orientations or must touch particular equipment.
+3. **Build the amulet cluster.** Put eligible high-value items against the correct amulet edges before filling neutral gaps.
+4. **Add compact stat pieces.** Use flexible shapes around the core instead of letting filler determine the layout.
+5. **Protect one continuous opening.** Leave a region that can accept a future reward without dismantling the entire engine.
 
-Most early mistakes come from optimizing the current screenshot instead of the next decision. Avoid layouts that are technically full but difficult to extend.
+This order separates “an item has good stats” from “the full arrangement produces more value.” The [amulet and adjacency guide](/mechanics/item-aura-adjacency) goes deeper into testing which touching items actually receive an effect.
 
-- Filling every gap too early.
-- Improving one item's position while weakening the cluster.
-- Creating narrow pockets that only one shape can use.
-- Rebuilding the full pack without recording what already worked.
+## How should reserve storage be used?
 
-Continue with the [aura and adjacency guide](/mechanics/item-aura-adjacency) when placement effects begin to define the build.
+Reserve storage is not dead space, but items there do not contribute to the current character's stats. Use it for pieces that may become valuable after a new amulet, ability, companion, or route reward appears.
+
+Good reserve candidates include:
+
+- an irregular high-value item that does not fit the current board;
+- one half of a synergy that is not active yet;
+- a compact replacement for a future layout;
+- an item intended for a companion whose inventory still needs rebuilding.
+
+Do not keep every low-value item “just in case.” Reserve space also becomes constrained later in a run. Compare a stored item's realistic next use with the opportunity cost of blocking a better future pickup.
+
+## How do amulets change the best layout?
+
+Current gameplay analysis shows two broad amulet behaviors: some can strengthen every item they touch, while others only affect specific eligible item types. That makes contact edges a limited resource.
+
+For each amulet, read the exact current tooltip and answer three questions:
+
+- Which item types are eligible?
+- Does the effect require direct contact?
+- Which touching item gains the most useful value for this build?
+
+Then compare the cluster before and after the move. A visually tidy inventory can still waste an amulet edge on an ineligible item, while a slightly awkward layout may produce more useful stats.
+
+## When should an item move to a companion?
+
+Companions have their own inventories and are AI-controlled in combat. Move an item when it improves the companion's actual role more than it improves the hero's board, or when the hero needs the freed shape to complete a stronger cluster. Do not treat companions only as extra storage: their own stats and ability behavior determine whether the transfer increases the party's total output or survivability.
+
+Consumables are the exception called out in current gameplay footage: companions cannot use them. Keep consumable access with the player character rather than filling a companion bag with items the AI cannot activate.
+
+## Which inventory mistakes cost the most?
+
+- **Filling isolated gaps immediately.** A full grid looks efficient but removes the ability to accept a better reward.
+- **Judging one item outside the layout.** Raw stats do not include the space and amulet edges the shape consumes.
+- **Leaving alternatives active.** A situational piece belongs in reserve if another item contributes more right now.
+- **Rotating without rechecking contact.** A shape may fit while silently breaking an amulet interaction.
+- **Using companions as storage only.** Their inventories should support the party member's combat job whenever possible.
+
+The broader [beginner guide](/guides/beginner-guide) shows where this inventory process fits into route, party, dice, and permanent-upgrade decisions.
 
 ## Sources
 
 - [Lootbound on Steam](https://store.steampowered.com/app/3091140/Lootbound/)
 - [ArtDock — Lootbound](https://games.artdock.studio/lootbound)
+- [Game Design Library — Five Lootbound mechanics](https://www.youtube.com/watch?v=WlfN20WF_us) — inventory at 0:05, reserve storage at 1:14, companion inventories at 2:15, and amulets at 3:19
