@@ -1,48 +1,118 @@
 ---
-title: "Lootbound Item Aura and Adjacency Mechanics"
-description: "Understand Lootbound aura and adjacency decisions with a practical placement framework that clearly separates confirmed systems from unverified details."
-category: "mechanics"
+title: 'Lootbound Item Aura and Adjacency Mechanics'
+description: 'Learn how Lootbound item auras strengthen eligible neighbors, where to place aura sources, and how to test unclear stacking or adjacency behavior.'
+category: 'mechanics'
 image: '../../../../assets/covers/en-mechanics-item-aura-adjacency.png'
 date: 2026-08-25
-lastModified: 2026-08-25
-tags: ["auras", "adjacency", "inventory", "testing"]
+lastModified: 2026-08-26
+tags: ['auras', 'adjacency', 'inventory', 'equipment', 'testing']
 draft: false
-summary: "Map an aura from the wording visible in the current build, then place only equipment that can actually benefit inside its affected area. Optimize the output of the full cluster rather than the aura source alone. When an interaction is unclear, move one item at a time and record the before-and-after result."
+summary: 'Lootbound aura items strengthen neighboring equipment that matches the condition written in the aura tooltip; they do not primarily strengthen themselves. Reserve high-contact positions for valuable auras, surround them with eligible beneficiaries, and prefer compact layouts that leave usable space. Test uncertain stacking by moving one item at a time and recording the before-and-after value.'
+videos: ['WlfN20WF_us']
 ---
 
 import Callout from '~/components/mdx/Callout.astro';
+import Video from '~/components/mdx/Video.astro';
 
-<Callout type="info" title="Verification status">Interaction-driven placement is confirmed. Per-item coverage diagrams, stacking rules, and exact ranges remain unpublished until captured and reproduced in game.</Callout>
+<Callout type="info" title="Confirmed rule, version-sensitive values">
+  Current public coverage confirms neighbor-based, condition-limited auras. Exact percentages, item
+  catalogs, and stacking behavior can change or remain unclear, so verify the visible tooltip before
+  applying a layout from another run or an older video.
+</Callout>
 
-## How do aura and adjacency effects change placement?
+## What does an item aura do in Lootbound?
 
-They convert location into power, so begin with the exact wording visible in the current build and map only the cells or neighbors it clearly affects. Do not assume diagonal coverage, distance, or stacking behavior unless a tooltip or controlled comparison demonstrates the rule under the same conditions.
+An aura changes nearby equipment rather than simply adding power to the item that carries it. The aura tooltip normally limits which neighbors qualify, such as a particular armor or weapon family. A piece can sit beside the aura and still receive nothing if it does not match that condition.
 
-## How does the anchor-and-beneficiary method work?
+This makes every aura a small layout problem with three parts:
 
-Choose the effect that defines the cluster as its anchor, then identify the equipment that can actually receive value from it. This prevents a tidy-looking layout from hiding wasted coverage on empty cells or pieces that do not benefit.
+- **Source:** the item carrying the aura.
+- **Beneficiaries:** neighboring items that match its condition.
+- **Footprint:** the cells and shapes required to keep those pieces in contact.
 
-1. Select the synergy-defining effect as the anchor.
-2. List every piece that can benefit from that effect.
-3. Place the least flexible beneficiary first.
-4. Compare the gained effect with the inventory space consumed.
+Judge the complete cluster. An aura with impressive wording is weak when it touches empty cells or ineligible equipment, while a modest aura can be valuable when several core items receive its effect.
 
-Review the [inventory rotation guide](/mechanics/inventory-grid-item-rotation) before rebuilding a large cluster.
+## Why are central positions more valuable?
 
-## How can you test an unclear interaction?
+Launch coverage explains the basic contact geometry: a central square can touch four edge-adjacent neighbors, while a corner can touch only two. An aura with several useful beneficiaries therefore gains more placement options away from the outer corners.
 
-Keep every variable fixed except one placement. Record the relevant before value, move or rotate one item, and observe the after value under the same conditions. Repeat the test before treating the result as a stable rule.
+That does not mean every aura belongs in the exact center of the inventory. The best location depends on item shapes, eligibility, and what future space remains. Reserve high-contact positions for effects that can actually use them; do not spend the center on an aura with only one valid target.
 
-- Capture the tooltip and full inventory in the same record.
+<Video id="WlfN20WF_us" title="Lootbound inventory placement, item rotation, and aura mechanics" />
+
+## How do you build an aura cluster?
+
+Place the cluster deliberately instead of dropping the aura into the first hole that remains.
+
+1. Read the aura's current tooltip and write down its eligibility condition.
+2. Identify every owned item that satisfies that wording.
+3. Rank those beneficiaries by how important they are to the current damage or defense plan.
+4. Clear a compact area large enough for the highest-value pieces.
+5. Place the least flexible shapes first.
+6. Fit the aura where it touches the most useful eligible neighbors.
+7. Compare the full inventory before and after the move.
+
+The objective is not the maximum theoretical number of contacts. It is the highest useful output without breaking another cluster or leaving the rest of the inventory unusable.
+
+## Why do compact layouts outperform scattered ones?
+
+A dense rectangle preserves future placement options. A scattered layout often creates isolated one-cell holes that cannot accept the next weapon or armor shape, even when the inventory appears to have enough total empty cells.
+
+Small one-cell items are useful connective pieces because they can fill awkward gaps and sometimes touch more than one aura. They still need to earn their cells: a connector that matches no aura and contributes little combat value is only hiding a layout problem.
+
+One practical starting point is to keep damage, defense, and utility in separate districts. The borders can move as the run changes, but the grouping makes aura eligibility easier to inspect and reduces accidental overlap between unrelated themes.
+
+## How do you compare two possible aura layouts?
+
+Use the inventory's total result rather than counting highlighted cells alone.
+
+| Check             | Better layout signal                                           |
+| ----------------- | -------------------------------------------------------------- |
+| Eligible contacts | More important matching items receive the effect               |
+| Combat role       | The cluster supports one clear damage, defense, or utility job |
+| Cell efficiency   | Fewer unusable gaps remain around irregular shapes             |
+| Flexibility       | A future reward can fit without dismantling the whole engine   |
+| Party impact      | The receiving character performs its role more reliably        |
+
+If moving the aura improves one stat but forces out the defense that keeps the character alive, the local gain may be a loss for the full party. The [early equipment synergy guide](/items/early-equipment-synergies) gives a two-piece test for deciding whether a cluster works now or depends on future rewards.
+
+## How can you test an unclear aura interaction?
+
+Change one variable at a time. Record the relevant value, move one beneficiary into or out of contact, and check the same value again under the same conditions.
+
+- Capture the aura tooltip and the beneficiary tooltip in the same test record.
+- Include the full inventory so another aura or permanent upgrade is visible.
 - Note the game version and test date.
-- Avoid combining several new effects in one test.
-- Mark the result as confirmed, inconsistent, or still unknown.
+- Keep the character, enemy context, and other equipment unchanged.
+- Repeat the change before treating the result as consistent.
 
-## What evidence is still needed?
+For stacking, test one aura first, then add the second without changing anything else. Do not infer additive, multiplicative, or capped behavior from a fight where several items and enemies changed simultaneously.
 
-The next evidence layer should include cell-by-cell diagrams, stacking checks, rotation comparisons, and screenshots tied to a visible game version. Until those tests exist, this page avoids universal claims about range, direction, or whether multiple copies stack.
+## What are the most common aura mistakes?
+
+### Placing in arrival order
+
+Filling every reward into the first available gap leaves the high-contact cells occupied before an important aura appears. Rebuild after meaningful pickups instead of preserving an accidental layout.
+
+### Ignoring the eligibility condition
+
+Adjacency alone is not enough. Re-read whether the aura applies to the neighbor's item family, damage type, or another visible condition.
+
+### Chasing item rarity
+
+A rare piece does not automatically deserve the best location. An ordinary eligible item receiving several relevant effects may contribute more than an isolated rare item.
+
+### Assuming diagonals or stacking
+
+The current source describes direct neighboring squares and four contacts from a central position. Do not add diagonal coverage or a stacking formula unless the current tooltip or a controlled test demonstrates it.
+
+### Forgetting the rest of the inventory
+
+An aura cluster is only one district. Check the [inventory grid and rotation guide](/mechanics/inventory-grid-item-rotation) before accepting a local improvement that creates unusable gaps or displaces another character's core equipment.
 
 ## Sources
 
-- [Lootbound on Steam](https://store.steampowered.com/app/3091140/Lootbound/)
-- [Steam Community Guides](https://steamcommunity.com/app/3091140/guides/)
+- [InsertCoins — Lootbound guide](https://insertcoins.press/en/articles/lootbound-guide) — aura conditions, central contact count, compact layouts, and inventory districts
+- [ArtDock — Lootbound](https://games.artdock.studio/lootbound) — official overview of loot, synergies, and inventory-based builds
+- [Lootbound on Steam](https://store.steampowered.com/app/3091140/Lootbound/) — current release and feature overview
+- [Game Design Library — Five Lootbound mechanics](https://www.youtube.com/watch?v=WlfN20WF_us) — visible inventory, rotation, and aura footage
