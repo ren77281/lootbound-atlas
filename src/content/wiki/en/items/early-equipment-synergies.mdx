@@ -1,43 +1,124 @@
 ---
-title: "Lootbound Early Equipment Synergies Guide"
-description: "Build stronger early Lootbound setups by evaluating equipment interactions, inventory cost, and run direction without inventing item balance data."
-category: "items"
+title: 'Lootbound Early Equipment Synergies and Aura Layout Guide'
+description: 'Build stronger early Lootbound inventories with aura placement, compact layouts, two-piece tests, and damage-type pairings that work now.'
+category: 'items'
 image: '../../../../assets/covers/en-items-early-equipment-synergies.png'
 date: 2026-08-25
-lastModified: 2026-08-25
-tags: ["equipment", "synergy", "inventory", "builds"]
+lastModified: 2026-08-26
+tags: ['equipment', 'synergy', 'inventory', 'auras', 'builds']
 draft: false
-summary: "Look for an early two-piece engine that works immediately, leaves useful inventory space, and can accept a third improvement without depending on it. Classify equipment by function instead of tier-list labels, compare the effect produced per cell, and record exact tooltip wording before turning a promising run into a published build claim."
+summary: "A strong early Lootbound synergy works with two pieces, fits into a compact section of the inventory, and remains useful if the next reward is different from what you hoped for. Place conditional auras where several eligible items can touch them, then compare the cluster's immediate combat value with the cells and flexibility it costs."
+videos: ['WlfN20WF_us']
 ---
 
 import Callout from '~/components/mdx/Callout.astro';
+import Video from '~/components/mdx/Video.astro';
 
-<Callout type="info" title="Verification status">Equipment synergy is a confirmed system. This guide deliberately avoids unverified item names, exact balance values, and rankings while the current item database is assembled.</Callout>
+<Callout type="info" title="Current evidence boundary">
+  The placement rules and broad combat roles below are documented in current public gameplay and
+  launch coverage. Exact item names, percentages, stacking behavior, and a universal tier list are
+  intentionally excluded until they can be captured from the same game version.
+</Callout>
 
-## How do you find an early equipment synergy?
+## What makes an early equipment synergy good?
 
-Classify each piece by its job: engine, multiplier, defense, consistency, or flexible filler. A useful early pairing usually combines an engine with something that makes it trigger more often or operate more safely. Judge the pair by what it does now, not only by the build it might become later.
+The best early synergy is not the rarest pair or the start of a perfect endgame screenshot. It is a small engine that improves the next fight immediately without using so much space that every later reward forces a rebuild.
+
+Lootbound does not impose fixed equipment slots. Each party member has a separate inventory, and the active arrangement of weapons, armor, accessories, and aura items becomes that character's build. That makes shape and placement part of an item's real cost.
+
+A useful early pairing usually passes four checks:
+
+1. **Active now:** both pieces contribute before a third reward appears.
+2. **Role-aligned:** the pair solves the same problem, such as breaking armor, dealing health damage, or keeping a character alive.
+3. **Space-efficient:** the cluster leaves a clean area for awkward future shapes.
+4. **Replaceable:** losing or replacing one piece does not collapse the whole inventory.
+
+## How should you classify an item before placing it?
+
+Ignore rarity for a moment and ask what job the item performs. This makes unlike-looking rewards easier to compare.
+
+| Item role   | What it contributes                                 | Early-run question                                    |
+| ----------- | --------------------------------------------------- | ----------------------------------------------------- |
+| Engine      | Starts the build's main damage or defense pattern   | Does it work with equipment already owned?            |
+| Multiplier  | Improves an engine through an aura, stat, or effect | How many eligible pieces receive real value?          |
+| Defense     | Preserves health or absorbs incoming damage         | Does it stabilize the next dangerous encounter?       |
+| Consistency | Makes turns, resources, or activation more reliable | Does it reduce a failure the run has already shown?   |
+| Filler      | Uses an awkward gap while adding useful value       | Can it connect auras without blocking a better shape? |
+
+An ordinary item can be the correct choice when it receives several useful aura effects. A rare item isolated in a corner may add less to the whole inventory. Compare the finished cluster, not the color of one piece.
+
+## How do aura items create synergies?
+
+Rarer equipment can carry an aura. Public launch coverage describes these auras as strengthening neighboring items rather than the aura source itself, usually with an eligibility condition such as a particular armor or weapon type. Read the current tooltip before placing anything; a neighbor that does not satisfy the condition is consuming space without receiving the advertised benefit.
+
+Use this order:
+
+1. Identify the items that satisfy the aura's visible condition.
+2. Choose the two to four eligible pieces that benefit most.
+3. Clear a compact area around the future aura position.
+4. Place the beneficiaries first, then fit the aura where it touches them.
+5. Re-read every affected tooltip or stat after the layout changes.
+
+A central location can touch four orthogonal neighbors, while a corner can touch only two. The centre is therefore valuable for an aura that has several eligible beneficiaries. A one-cell accessory can also act as connective tissue between clusters without creating a large unusable gap.
+
+For exact placement examples and a controlled testing method, use the [aura and adjacency guide](/mechanics/item-aura-adjacency).
+
+<Video id="WlfN20WF_us" title="Lootbound inventory, item rotation, auras, and party mechanics" />
 
 ## What is the two-piece test?
 
-The two-piece test checks whether an interaction is functional, flexible, and affordable before more rewards arrive. A pair that requires several missing pieces should remain a speculative direction with a reliable fallback.
+The two-piece test stops a promising theme from becoming an expensive wish list. Put the proposed engine and its first support piece into the real inventory, then judge the result before assuming a missing third item will arrive.
 
-- Can both pieces fit without consuming the entire pack?
-- Is the interaction active immediately?
-- Does the pair survive a rotation or small layout change?
-- Can a third piece improve it without becoming mandatory?
+- Does the interaction activate immediately?
+- Can both pieces fit without breaking a stronger existing cluster?
+- Does a small rotation or relocation preserve the useful contact?
+- Can a third piece improve the setup without becoming mandatory?
+- If the next reward is unrelated, can the current pair still win fights?
 
-Use the [aura and adjacency guide](/mechanics/item-aura-adjacency) when the pairing depends on exact placement.
+If the answer to the first or last question is no, treat the pair as speculative. Keep a working fallback until the missing component is actually available.
 
-## How do you compare synergy density?
+## Which damage pairings give a build direction?
 
-Inventory space creates a hidden cost. Compare how much of the build's goal a cluster achieves per cell and how many awkward gaps it leaves. A smaller, flexible cluster may outperform a stronger-looking setup because it can accept better future rewards without a full rebuild.
+Damage type gives equipment a practical role even before exact item rankings exist. Current launch coverage describes Crush as an armor-breaking tool, Slash as health-focused damage that becomes effective after armor is removed, and Acid as damage that bypasses armor to reach health directly.
 
-## How does a promising run become evidence?
+That produces two useful early directions:
 
-Capture the tooltips and full final layout, record the game version and date, and describe the activation order without guessing hidden rules. Repeat the key interaction before calling it consistent. This evidence can later support a specific build page without turning one unusual run into a universal recommendation.
+- **Crush plus Slash:** one part of the setup opens armored targets and the other finishes health. This is a complementary pair rather than two pieces competing for the same job.
+- **Acid against heavy armor:** if the run already has reliable Acid output, equipment that merely adds more armor-breaking may solve a problem the build can bypass.
+
+These are role pairings, not claims that one named item or damage type is always best. Enemy health, armor, route rewards, and the party's current inventories still determine whether a pickup helps.
+
+## How should you organize the inventory for future rewards?
+
+A simple early layout divides the board into damage, defense, and utility districts. The borders do not need to be permanent; their purpose is to prevent arrival-order placement from scattering related pieces across the grid.
+
+Prefer compact rectangles over a layout full of single-cell holes. When a new item arrives, first ask whether rearranging the existing pieces produces more value than taking the reward. Moving an aura one square can improve several items at no loot cost.
+
+After every pickup:
+
+1. Remove the weakest flexible piece temporarily.
+2. Rebuild the main aura or damage cluster.
+3. Fit defense and utility around the stable core.
+4. Compare the complete before-and-after inventory.
+5. Return the filler only if it still earns its cells.
+
+The [inventory grid and rotation guide](/mechanics/inventory-grid-item-rotation) explains active inventory, reserve storage, irregular shapes, and why a nominal upgrade can be worse when it damages the layout.
+
+## When should you abandon an early synergy?
+
+Pivot when the build's current bottleneck and its reward path no longer match. Warning signs include spending several rooms waiting for one missing piece, carrying equipment that contributes nothing now, or rebuilding every pickup around a cluster that still cannot handle the next fight.
+
+Do not abandon a functioning two-piece engine merely because a rare unrelated item appears. Replace it when the alternative produces more total value in the real grid, not when its tooltip looks more exciting in isolation.
+
+## How do you turn a run into reliable build evidence?
+
+Capture the exact tooltips, the full inventory, the game version, and the encounter used for comparison. Change one placement or item at a time, then repeat the result before naming a specific build or ranking.
+
+This matters because a successful run can hide several causes: favorable enemy order, a strong companion, permanent crystal upgrades, or one unusual reward. A publishable build guide needs to show which pieces are essential, which are replaceable, when the engine starts working, and what causes it to fail.
 
 ## Sources
 
-- [Lootbound on Steam](https://store.steampowered.com/app/3091140/Lootbound/)
-- [Steam Community Guides](https://steamcommunity.com/app/3091140/guides/)
+- [InsertCoins — Lootbound guide](https://insertcoins.press/en/articles/lootbound-guide) — aura placement, inventory districts, damage roles, and common layout mistakes
+- [ArtDock — Lootbound](https://games.artdock.studio/lootbound) — official overview of loot, synergies, party growth, and inventory-shaped builds
+- [Lootbound on Steam](https://store.steampowered.com/app/3091140/Lootbound/) — current release and feature overview
+- [Game Design Library — Five Lootbound mechanics](https://www.youtube.com/watch?v=WlfN20WF_us) — inventory, item rotation, aura, and party footage
