@@ -1,43 +1,101 @@
 ---
-title: "Lootbound Dice Roll Mechanics Guide"
-description: "Use a practical Lootbound dice decision framework while avoiding unsupported probability claims until controlled in-game samples are available."
-category: "mechanics"
+title: 'Lootbound Dice Mechanics: D20 Checks and Character Dice'
+description: "Understand Lootbound's D20 reward checks, character D6 follow-up rolls, unusual die faces, and how to calculate whether a die can cover the remaining gap."
+category: 'mechanics'
 image: '../../../../assets/covers/en-mechanics-dice-roll-mechanics.png'
 date: 2026-08-25
 lastModified: 2026-08-25
-tags: ["dice", "risk", "probability", "routes"]
+tags: ['dice', 'd20', 'probability', 'rewards']
 draft: false
-summary: "Evaluate a Lootbound dice choice by listing the visible outcomes, their value to the current setup, and the cost of the worst result. Do not assume outcomes are equally likely unless the game shows that information. Record what was known before rolling so a good decision is not confused with a lucky result."
+summary: "Lootbound reward checks begin with a D20 against the displayed difficulty. When the D20 falls short, the selected character die adds a second result. Character dice use six faces but may contain zeroes, repeated numbers, or unusually high values, so choose by counting how many faces cover the remaining gap—not by comparing only each die's maximum."
+videos: ['WlfN20WF_us']
 ---
 
 import Callout from '~/components/mdx/Callout.astro';
+import Video from '~/components/mdx/Video.astro';
 
-<Callout type="info" title="Verification status">Dice-driven risk is confirmed. Exact probability tables remain unpublished until a controlled sample records the event, version, and raw outcome counts.</Callout>
+## How do Lootbound dice checks work?
 
-## How should you evaluate a Lootbound dice choice?
+Current public gameplay analysis shows dice checks attached to valuable item choices. The item displays a difficulty, the game rolls a D20, and a failed initial result can be supplemented by a selected character die. The character die result is added to the D20 result rather than replacing it with another D20 roll.
 
-List the outcomes shown by the game, the value of each outcome to the current build, and the cost of failure. If the interface does not disclose exact probabilities, do not silently assume every result has the same chance. Uncertainty can be managed without pretending that unknown odds are known.
+The sequence is:
 
-## What belongs in a risk budget?
+1. Compare the reward's displayed difficulty with the D20 result.
+2. If the initial roll succeeds, no rescue is needed.
+3. If it falls short, identify the remaining gap.
+4. Roll the selected six-faced character die and add that face to the D20.
+5. The combined result determines whether the check is rescued.
 
-A risk budget asks whether the setup can afford the worst visible result and whether the upside solves an important problem. It keeps the decision tied to the current run instead of a desire to recover from the previous roll.
+<Video id="WlfN20WF_us" title="Lootbound D20 checks and unusual character dice" />
 
-- Can the run continue after the worst visible result?
-- Does the best result solve a meaningful bottleneck?
-- Is there a lower-variance route to the same goal?
-- Are you rolling because it is correct, or because the last roll failed?
+## Why are character dice different from normal D6s?
 
-Compare the available branches with the [route planning checklist](/guides/map-routes-risk-reward).
+The physical shape has six faces, but the values do not have to be 1, 2, 3, 4, 5, and 6. The mechanics demonstration gives examples with zeroes, repeated threes or fours, and even a die with one 10 and five zeroes.
 
-## Why is the result not the same as decision quality?
+This means “higher maximum” is not the same as “better chance.” A spike die with one 10 can rescue a large miss, but five of its six faces may add nothing. A consistent die with several threes and fours can solve small gaps reliably but can never cover a large miss.
 
-A successful roll does not prove the choice was good, and a failed roll does not automatically make it a mistake. Preserve the information available at decision time. This prevents short streaks from becoming false rules and makes the review useful across many runs.
+## How do you calculate the rescue chance?
 
-## What would verify an exact probability?
+Once the D20 has been rolled, count the faces on the selected die that are at least large enough to cover the remaining gap:
 
-A trustworthy probability claim needs a visible version, a clear event definition, repeated observations, and raw counts. Until that evidence exists, this site describes decision frameworks instead of publishing precise percentages that could mislead players.
+**Rescue chance = successful faces ÷ 6**
+
+The table below uses the example face distributions described in the public mechanics video. It illustrates the decision method; it is not a complete catalog of purchasable dice.
+
+| Remaining gap | Consistent die: 3, 3, 3, 4, 4, 4 | Spike die: 0, 0, 0, 0, 0, 10 |
+| ------------: | -------------------------------: | ---------------------------: |
+|             2 |                       6/6 = 100% |                  1/6 = 16.7% |
+|             4 |                        3/6 = 50% |                  1/6 = 16.7% |
+|             7 |                         0/6 = 0% |                  1/6 = 16.7% |
+
+For a small gap, the consistent die dominates. For a gap larger than every face on that die, its rescue chance is zero and the spike die becomes the only one of the two examples that can succeed.
+
+<Callout type="tip" title="Read all six faces">
+  Choose after measuring the gap whenever the game permits it. A die's average or maximum cannot
+  answer the immediate question as directly as the number of successful faces.
+</Callout>
+
+## When should you choose consistency over a high roll?
+
+Choose a consistent die when most likely misses are small enough for several of its faces. This is especially useful when the reward is helpful but not worth relying on a one-in-six rescue.
+
+Choose a high-variance die when:
+
+- the remaining gap is too large for the consistent die;
+- only a rare high face can rescue the current result;
+- failure is affordable and the reward meaningfully changes the run.
+
+Do not use the previous roll as evidence that a face is “due.” Each decision should be based on the visible faces and the current gap, not on whether the same die recently succeeded or failed.
+
+## How should you compare dice before a roll?
+
+Before the D20 result is known, compare the full distribution rather than only one rescue scenario. A useful pre-roll evaluation asks:
+
+- How many faces are zero or too small for common gaps?
+- What is the median face, not just the maximum?
+- Which gaps can the die never cover?
+- Does another die trade a little maximum value for several more useful faces?
+
+The best die depends on the reward difficulty and the run's tolerance for failure. A stable build may accept variance for a premium reward; a fragile build should usually prefer a distribution that rescues more ordinary misses.
+
+## How do Hub dice purchases connect to achievements?
+
+Steam lists **Facets of Fate** for buying all dice in the Hub. That confirms a permanent dice collection outside individual checks, but the global achievement page does not expose every die's faces or price. Record those values from the current build before publishing a catalog or claiming one purchase order is optimal.
+
+Buying more dice expands the available distributions. It does not make every new die a universal upgrade: a die with extreme faces may be the correct tool for one gap and the wrong tool for another.
+
+## Which dice mistakes should beginners avoid?
+
+- **Comparing only maximum faces.** Count how many faces can actually rescue the current miss.
+- **Assuming a normal 1–6 distribution.** Lootbound character dice can repeat values or include zeroes and high outliers.
+- **Treating a failed roll as a bad choice.** Evaluate the probability available before the outcome.
+- **Choosing without checking failure cost.** A small probability can be reasonable only when the run can absorb failure or the upside is worth it.
+- **Publishing exact odds without the faces.** A six-sided shape guarantees six outcomes, not six different values.
+
+Combine this calculation with the [route risk-and-reward guide](/guides/map-routes-risk-reward) when a dice reward competes with a safer branch, or return to the [beginner guide](/guides/beginner-guide) for the complete run decision order.
 
 ## Sources
 
 - [Lootbound on Steam](https://store.steampowered.com/app/3091140/Lootbound/)
-- [Steam Community Guides](https://steamcommunity.com/app/3091140/guides/)
+- [Steam Global Achievements — Lootbound](https://steamcommunity.com/stats/3091140/achievements)
+- [Game Design Library — Five Lootbound mechanics](https://www.youtube.com/watch?v=WlfN20WF_us) — D20 and character-die sequence at 4:34; example die faces at 5:25
