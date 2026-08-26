@@ -4,7 +4,7 @@ description: "A spoiler-light Lootbound first-run checklist covering the officia
 category: "guides"
 image: '../../../../assets/covers/en-guides-first-run-guide.png'
 date: 2026-08-25
-lastModified: 2026-08-25
+lastModified: 2026-08-26
 tags: ["first-run", "steam", "beginner", "verification"]
 draft: false
 summary: "Use the live Steam page to confirm current availability, then spend the first Lootbound session learning how rotation, placement, routes, dice choices, companions, and Guardian parts change the plan. Record the visible game version before reporting a bug or mechanic, and test one focused hypothesis per run after the basic interactions are clear."
@@ -12,15 +12,41 @@ summary: "Use the live Steam page to confirm current availability, then spend th
 
 import Callout from '~/components/mdx/Callout.astro';
 
-<Callout type="info" title="Current availability">Lootbound released on Steam on 14 August 2026. A separate demo can appear or disappear, so the live store page remains the authority for current availability.</Callout>
+<Callout type="info" title="Current Steam listing">As checked on 26 August 2026, Steam lists both the full Lootbound release and a separate demo. Do not assume that demo progress transfers to the full game unless the current store page or an in-game message explicitly says so.</Callout>
 
 ## What should you do before your first Lootbound run?
 
-Open the official Steam listing and confirm which build is currently available. Old guides can become stale after release or a patch. Once in game, focus on learning how systems respond to one change at a time rather than trying to memorize unverified lists of items, rooms, or exact values.
+Open the official Steam listing and confirm which build is currently available. Old guides can become stale after release or a patch. Steam currently labels Lootbound as a single-player game with Steam Cloud, 20 achievements, full controller support, and a **Playable** Steam Deck rating. Its store page also lists separate Windows, macOS, and SteamOS/Linux requirements and warns that Intel-based Macs are not supported.
+
+Use this pre-launch check instead of troubleshooting several variables at once:
+
+| Check | What to verify |
+| --- | --- |
+| Edition | Full game or the separately listed demo |
+| Platform | The live requirements for your operating system |
+| Input | Keyboard and mouse or a controller recognized by Steam |
+| Save context | The Steam account and Cloud status you intend to use |
+| Version | The version shown in game before following a mechanics guide |
+
+These are store capabilities, not promises that every controller layout, Deck scene, or save transfer behaves identically. Test the exact setup you plan to use before investing a long run.
+
+## What should you learn in the opening minutes?
+
+The official description gives five reliable things to test immediately: every expedition begins with one hero, route choices lead toward loot, companions join along the way, each party member needs a separate equipment set, and items can be rotated in free inventory space. It also says that adjacent-item auras can change a build when one item moves by a single cell.
+
+Turn those facts into a short opening checklist:
+
+1. Rotate one irregular item and compare the space left around it.
+2. Move one aura item by a single cell and identify which adjacent pieces change.
+3. Keep the hero's active inventory coherent before preserving speculative pieces.
+4. Read the route branches before selecting the most visually valuable reward.
+5. When a special room shows several difficulties, compare the reward with the dice requirement shown on screen.
+
+The [inventory rotation guide](/mechanics/inventory-grid-item-rotation) and [aura adjacency guide](/mechanics/item-aura-adjacency) explain the first two checks without relying on a fixed item list.
 
 ## What should you learn in the first session?
 
-Use the first session to observe placement and route feedback. These checks create knowledge that remains useful when the balance changes because they focus on how to test a decision rather than one fixed answer.
+Use the first complete session to observe placement, party growth, and route feedback. These checks create knowledge that remains useful when balance changes because they focus on how to test a decision rather than one fixed answer.
 
 1. Rotate item shapes and watch which layouts remain flexible.
 2. Observe which relationships update immediately after a move.
@@ -30,9 +56,28 @@ Use the first session to observe placement and route feedback. These checks crea
 
 Start with the broader [beginner guide](/guides/beginner-guide) when you want a complete run-planning framework.
 
+## What is a good first-run objective?
+
+Do not judge the first run only by whether it reaches the ending. A useful first attempt should answer a small set of reusable questions:
+
+- Which active items directly support the hero's current abilities?
+- Which pieces are only occupying space while waiting for an unconfirmed synergy?
+- Which route choice solved the party's immediate problem?
+- Which special-room reward was worth its displayed difficulty?
+- What changed after the first companion joined?
+- Which resource or weakness ended the run?
+
+That produces a practical next-run plan. For example, “protect inventory flexibility until the first companion” is testable; “always take the left path” is not, because the visible choices and run state can change.
+
+## How should you handle patches and old advice?
+
+Record the game version before treating an observed rule as current. Patch 1.1.7, for example, changed item selection by adding a predictable common reward alongside a dice option with a chance at something better. A guide recorded before that change can describe a different decision screen without being fraudulent; it is simply outdated.
+
+Check the [Patch 1.1.7 notes](/updates/patch-1-1-7) and the site's [updates section](/updates) when your screen does not match a guide. Never invent missing odds or item pools to make old advice appear precise.
+
 ## What belongs in a useful bug report?
 
-Record the visible game version, platform, input method, reproduction steps, and a screenshot that includes the complete inventory or decision screen. Version context matters because a mechanic can change after a patch, making an otherwise accurate report difficult to reproduce later.
+Record the visible game version, full game or demo, operating system, input method, reproduction steps, and a screenshot that includes the complete inventory or decision screen. If the issue involves a save, also note whether Steam Cloud was active and whether the problem appeared before or after switching devices. Version context matters because a mechanic can change after a patch, making an otherwise accurate report difficult to reproduce later.
 
 ## How do you move beyond the tutorial mindset?
 
@@ -42,3 +87,4 @@ Once every piece has a reason for occupying its current cell, test one focused h
 
 - [Lootbound on Steam](https://store.steampowered.com/app/3091140/Lootbound/)
 - [ArtDock — Lootbound](https://games.artdock.studio/lootbound)
+- [Official Lootbound Patch 1.1.7 announcement](https://steamstore-a.akamaihd.net/news/externalpost/steam_community_announcements/1840944183788376)
