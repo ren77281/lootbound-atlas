@@ -1,46 +1,112 @@
 ---
-title: "Lootbound Achievement Guide and Verification Tracker"
-description: "Track Lootbound achievements without guessed unlock conditions, using a clear process for confirming visible requirements and hidden triggers."
-category: "guides"
+title: 'Lootbound Achievements Guide: All 20 Steam Unlocks'
+description: 'See all 20 Lootbound Steam achievements, their current unlock conditions, completion categories, and the one hidden requirement that still needs verification.'
+category: 'guides'
 image: '../../../../assets/covers/en-guides-achievement-guide.png'
 date: 2026-08-25
 lastModified: 2026-08-25
-tags: ["achievements", "completion", "steam", "testing"]
+tags: ['achievements', 'completion', 'steam', 'difficulty-iii']
 draft: false
-summary: "Use the live Steam achievement panel as the catalog authority, then verify unclear unlocks by changing one variable per attempt. Record the game version, visible description, action before the unlock, and whether Steam synchronized it. Until the current catalog is captured and reproduced, this tracker deliberately avoids guessed names or requirements."
+summary: 'Lootbound currently has 20 Steam achievements. Most fall into five clear groups: story bosses, Hub purchases, Difficulty III clears, companion ability unlocks, and long-term collection goals. Steam exposes requirements for 19 entries; Oops, Butterfingers! remains hidden on the Steam global achievements page and is separated below rather than presented as confirmed.'
 ---
 
 import Callout from '~/components/mdx/Callout.astro';
 
-<Callout type="warn" title="Incomplete by design">The current catalog and hidden conditions still require direct capture. This page does not publish guessed achievement names or unlock requirements.</Callout>
+<Callout type="info" title="Current Steam catalog">
+  This list was checked against Steam's live global achievements page on August 25, 2026. Global
+  unlock rates change over time, so use the percentages as a difficulty snapshot rather than
+  permanent values.
+</Callout>
 
-## How should Lootbound achievements be verified?
+## How many achievements does Lootbound have?
 
-Treat the live Steam achievement panel as the catalog authority, then reproduce uncertain requirements in the current game build. A fabricated condition wastes more player time than an incomplete list, so named entries should only appear after the visible catalog is captured and ambiguous triggers are tested cleanly.
+Lootbound has **20 Steam achievements**. Steam currently displays the unlock requirement for 19 of them and hides the description for **Oops, Butterfingers!**. The table below follows Steam's wording and uses the global completion rates visible on the same page when this guide was reviewed.
 
-## What belongs in an achievement record?
+| Achievement             | Steam requirement                                  | Global unlock rate\* |
+| ----------------------- | -------------------------------------------------- | -------------------: |
+| The First Fall          | Die on a run for the first time                    |                79.9% |
+| No One Left Behind      | Complete a run without any companion deaths        |                53.6% |
+| Vizier's Oblivion       | Defeat the Vizier of the Halls of Knowledge        |                42.8% |
+| The Fallen Queen        | Defeat the Queen of the Mad Swarm                  |                37.4% |
+| Fall of the Bastion     | Defeat the Ashen Bastion                           |                36.9% |
+| Master of Sword         | Unlock all abilities for the Warrior companion     |                29.8% |
+| Wisdom of Chaos         | Unlock all abilities for the Witch companion       |                14.0% |
+| Titan Slayer            | Kill 50 elite enemies                              |                13.6% |
+| Trained Recruit         | Buy all upgrades for a single hero in the Barracks |                10.6% |
+| The Last General        | Complete a run with the Warrior on Difficulty III  |                10.6% |
+| You Snooze, You Lose!   | Complete a run in under 35 minutes                 |                 8.1% |
+| Witch of Catastrophe    | Complete a run with the Witch on Difficulty III    |                 7.1% |
+| Fury of Faith           | Unlock all abilities for the Paladin companion     |                 6.6% |
+| Spark of Inspiration    | Unlock all abilities for the Bard companion        |                 5.9% |
+| Collector               | Discover 400 unique items                          |                 4.1% |
+| Oops, Butterfingers!    | Hidden on Steam                                    |                 3.9% |
+| Paladin of Purification | Complete a run with the Paladin on Difficulty III  |                 3.5% |
+| Lamb of Rebellion       | Complete a run with the Bard on Difficulty III     |                 3.2% |
+| Facets of Fate          | Buy all dice in the Hub                            |                 3.0% |
+| Alchemist's Apprentice  | Buy 15 consumables in the Hub                      |                 1.8% |
 
-A useful record preserves enough context for another player to repeat the test. Capture both successful and unsuccessful attempts so a coincidence is not mistaken for the real trigger.
+\* Steam global rate observed on August 25, 2026.
 
-| Field | What to record |
-| --- | --- |
-| Catalog | Achievement name and visible description |
-| Visibility | Whether Steam marks it hidden or visible |
-| Version | Game build and test date |
-| Trigger | Action immediately before the unlock |
-| Sync | Whether the in-game notice and Steam profile updated together |
+## Which achievements unlock during normal progression?
 
-## How do you test an ambiguous condition?
+Start by treating the boss and first-death achievements as natural progression rather than farming targets. **The First Fall** unlocks on the first failed run, while **Fall of the Bastion**, **The Fallen Queen**, and **Vizier's Oblivion** are tied to the three named boss defeats shown by Steam.
 
-Change one variable per attempt. If an unlock could depend on route, companion, inventory state, or Guardian setup, keep the other three stable. This isolates the likely cause and creates a record that remains useful when a patch changes one part of the system.
+**No One Left Behind** is the first run-condition achievement worth planning around. It requires a completed run with no companion deaths, so it is safer to attempt after you understand how the AI-controlled party behaves and can maintain a stable inventory for every member. The [companion system guide](/mechanics/companion-system) explains the party-planning questions to check before committing to that attempt.
 
-Use the [first-run guide](/guides/first-run-guide) for the same version-recording discipline when reporting a mechanic or bug.
+## Which achievements require separate hero clears?
 
-## What is the current tracker status?
+Difficulty III completion is tracked separately for all four named heroes. Finishing with one hero does not satisfy the other three entries.
 
-The verification framework is ready, but the per-achievement table remains withheld until it can cite the current catalog and reproducible observations. Steam Community Guides can suggest tests, but they are leads rather than automatic proof.
+| Hero    | Difficulty III achievement |
+| ------- | -------------------------- |
+| Warrior | The Last General           |
+| Bard    | Lamb of Rebellion          |
+| Witch   | Witch of Catastrophe       |
+| Paladin | Paladin of Purification    |
+
+Build each clear around the hero you actually selected instead of forcing one universal inventory plan. The [inventory grid guide](/mechanics/inventory-grid-item-rotation) covers how to preserve enough board flexibility to change direction during a run.
+
+## Which achievements should be progressed in the Hub?
+
+Three achievements explicitly name Hub progression:
+
+- **Facets of Fate** — buy every die in the Hub.
+- **Alchemist's Apprentice** — buy 15 consumables in the Hub.
+- **Trained Recruit** — buy every upgrade for one hero in the Barracks.
+
+Avoid spreading resources only for the sake of making every counter move at once. Trained Recruit rewards completing a single hero's upgrade set, while Facets of Fate asks for the full dice catalog. If completion speed matters, pick one of those goals and check its remaining purchases before spending on unrelated unlocks.
+
+## What are the long-term and companion achievements?
+
+**Collector** requires 400 unique item discoveries, and **Titan Slayer** requires 50 elite kills. Both are cumulative goals, so ordinary varied runs should advance them without a dedicated one-run setup.
+
+Four more achievements ask you to unlock every ability for a specific companion class:
+
+- Warrior — **Master of Sword**
+- Bard — **Spark of Inspiration**
+- Witch — **Wisdom of Chaos**
+- Paladin — **Fury of Faith**
+
+The wording says “companion,” which is distinct from the four Difficulty III achievements that specify completing a run with the corresponding hero. Check the achievement name before investing resources so the hero-clear and companion-ability objectives are not confused.
+
+## How should you attempt the 35-minute achievement?
+
+Steam currently requires a completed run in **under 35 minutes** for **You Snooze, You Lose!**. Some third-party listings still show 45 minutes, but that does not match the current Steam requirement.
+
+Use a separate speed attempt after you can already finish consistently. Reduce time spent rebuilding the same inventory, take a route you can evaluate quickly, and avoid testing unfamiliar interactions during the timed run. The timer condition only matters if the run is completed.
+
+## What is the hidden Oops, Butterfingers! requirement?
+
+Steam does not show the requirement on its global achievements page. A cross-platform achievement tracker lists **“Discard a blacksmith gem”** for the Xbox version, but this page does not treat that wording as confirmed for Steam because platform data can diverge. Use it as a test lead and verify whether Steam unlocks before relying on it.
+
+<Callout type="warn" title="Hidden achievement evidence">
+  If you confirm the Steam unlock, record the game version, the item name shown on screen, the
+  discard action, and the Steam notification. That is enough to replace the cross-platform hint with
+  a reproducible Steam instruction.
+</Callout>
 
 ## Sources
 
+- [Steam Global Achievements — Lootbound](https://steamcommunity.com/stats/3091140/achievements)
 - [Lootbound on Steam](https://store.steampowered.com/app/3091140/Lootbound/)
-- [Steam Community Guides](https://steamcommunity.com/app/3091140/guides/)
+- [TrueAchievements — Lootbound achievement list](https://www.trueachievements.com/game/Lootbound/achievements) — used only to identify the unconfirmed Xbox description for the hidden entry
