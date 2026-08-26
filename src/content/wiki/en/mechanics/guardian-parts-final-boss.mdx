@@ -1,43 +1,127 @@
 ---
-title: "Lootbound Guardian Parts and Final Boss Preparation"
-description: "Prepare for Lootbound Guardian construction and the final encounter with a planning checklist that avoids unverified part stats and boss values."
-category: "mechanics"
+title: 'Lootbound Guardian Parts and Final Boss Preparation'
+description: 'Choose Lootbound Guardian parts around your damage plan, prepare through all three biomes, and avoid building a final boss your party cannot counter.'
+category: 'mechanics'
 image: '../../../../assets/covers/en-mechanics-guardian-parts-final-boss.png'
 date: 2026-08-25
-lastModified: 2026-08-25
-tags: ["guardian", "final-boss", "planning", "builds"]
+lastModified: 2026-08-26
+tags: ['guardian', 'final-boss', 'planning', 'damage-types', 'builds']
 draft: false
-summary: "Plan backward from the Guardian and final confrontation instead of collecting promising parts without a complete setup in mind. Evaluate each part by immediate value, final contribution, inventory cost, and the pivot it demands. Preserve a stable core so the run can keep functioning while the final plan is still taking shape."
+summary: "Lootbound lets you choose one of two Guardian parts at the end of each of three biomes, so the final boss is partly defined by your own decisions. Judge every part against the party's damage plan: Acid can ignore added armor, while Slash and critical setups should avoid armor they must break before reaching health."
+videos: ['0EjlrCI00k8']
 ---
 
 import Callout from '~/components/mdx/Callout.astro';
+import Video from '~/components/mdx/Video.astro';
 
-<Callout type="info" title="Verification status">Guardian construction and the final confrontation are confirmed by official descriptions. The complete part catalog, exact boss phases, and damage values still require direct capture.</Callout>
+<Callout type="info" title="What is verified">
+  The three-biome structure, two-part choice at each biome end, and build-dependent selection logic
+  are documented in current public coverage. A complete part catalog, exact stat changes, and phase
+  breakpoints are not yet available from reproducible current-version captures, so this page does
+  not invent them.
+</Callout>
 
-## How should you prepare for the Lootbound Guardian?
+## How does the Guardian system work in Lootbound?
 
-Plan backward from the final setup. As soon as the run reveals a plausible Guardian direction, identify what it still needs and which existing equipment remains useful if the plan changes. This makes the end state a constraint throughout the run rather than a separate decision at the finish.
+Lootbound sends the party through three biomes. At the end of each biome, the player chooses between two boss parts. Each selected part changes the appearance and power of the Guardian faced at the end of the expedition. After the third choice, the three decisions combine into the final boss.
 
-## How do you judge a Guardian part?
+This reverses the usual roguelite problem. You are not only building a party to answer a fixed boss; you are also deciding which boss properties that party will need to answer later. A part that looks harmless by itself can become the wrong choice when combined with the other two.
 
-Measure each part by what it contributes to the whole setup, not by how impressive it looks alone. Include the inventory or route opportunity that must be given up to take it.
+<Video id="0EjlrCI00k8" title="Lootbound loot management and the player-built final boss system" />
 
-- Does the part reinforce the current plan or demand a pivot?
-- What space or route opportunity does it consume?
-- Does it provide immediate value, final value, or both?
-- Can the rest of the build cover its weakness?
+## How should you choose a Guardian part?
 
-The [companion system guide](/mechanics/companion-system) uses the same whole-package evaluation for another run-defining choice.
+Choose the part your current damage engine is best equipped to handle, not the one that appears weakest in isolation. First identify whether the party wins by removing armor, bypassing armor, or scaling damage after armor is gone. Then compare the two offered parts against that plan.
 
-## What should you check before the final encounter?
+| Current plan              | Part property that is easier to accept          | Part property to treat cautiously      | Why                                                                            |
+| ------------------------- | ----------------------------------------------- | -------------------------------------- | ------------------------------------------------------------------------------ |
+| Reliable Acid damage      | Additional armor                                | Additional health                      | Acid is described as reaching health directly instead of breaking armor first. |
+| Slash and critical damage | Additional health after armor is solved         | Additional armor                       | Slash needs access to health, so more armor delays the build's main output.    |
+| Crush into Slash          | A property the Crush package can remove         | A property not covered by the finisher | The build needs both the opener and health damage to remain functional.        |
+| Mixed or unfinished build | The option that preserves the clearest fallback | Any part requiring a future item       | A hypothetical counter is not useful if the next biome never supplies it.      |
 
-Reduce speculative pieces and confirm that the inventory still expresses one coherent plan. The goal is not to carry the largest collection of interesting parts; it is to arrive with a complete setup whose interactions and failure points you understand.
+The Acid-versus-armor and Slash-versus-armor comparison is a tactical heuristic from launch coverage, not a complete part tier list. Exact Guardian values may change, and a party with weak Acid output can still struggle even if the damage type bypasses armor.
 
-## Which details remain unverified?
+## What should you check at the first Guardian choice?
 
-This page does not claim a complete part list, exact boss phases, damage breakpoints, or a universal best Guardian. Those sections require screenshots and reproducible observations from the current build, and they will be versioned when added.
+The first choice should establish a direction without locking the run to one missing reward. At this point two biomes remain, so there is time to strengthen a counter or pivot, but the party still needs to survive ordinary encounters.
+
+Ask:
+
+1. What damage type is already producing reliable results?
+2. Which character carries that damage, and can its inventory still grow?
+3. Does either part attack a weakness the party has already demonstrated?
+4. If the preferred counter never drops, what is the fallback?
+
+Do not select a part because a future legendary item would solve it. Select it because the current core can handle it or because the remaining route offers several realistic ways to close the gap.
+
+## How should the second and third choices differ?
+
+The second choice is where combinations become more important than individual parts. Re-evaluate the first selection together with the current offer and ask whether the two properties multiply the same weakness. A party that can manage one armor-focused part may still fail if the second choice adds another delay before health damage begins.
+
+The third choice is a readiness check. There is no later biome in which to repair a speculative plan, so prefer the option the current inventories can answer immediately. Stop valuing theoretical ceiling and inspect the real party:
+
+- Is the main damage engine complete and compact?
+- Does each companion's inventory support its actual combat role?
+- Is enough health preserved for the final encounter?
+- Is enough mana available for abilities that the plan requires?
+- Are consumables still on the player-controlled hero who can use them?
+
+The [companion system guide](/mechanics/companion-system) explains why AI-controlled companions and their separate inventories must be prepared before combat rather than fixed through manual commands during a turn.
+
+## How do resources affect Guardian preparation?
+
+Armor replenishes after each fight in current public coverage, while health does not automatically return. Mana only partially regenerates between fights and recovers less on higher difficulties. That makes health and mana expedition resources rather than values to spend freely in every room.
+
+Approaching the Guardian with the correct damage type but an empty resource pool is still a failed plan. Save ability-heavy sequences for fights that need them, use route recovery opportunities to protect health, and avoid taking unnecessary damage merely to test a new item before the final biome ends.
+
+The [first-run guide](/guides/first-run-guide) covers route choices, campfires, blacksmith upgrades, and the D20 training-room risk that can affect final preparation.
+
+## What are the most common Guardian planning mistakes?
+
+### Choosing the least frightening-looking part
+
+Appearance is not the decision rule. Translate the offered property into what your build must do during the final fight, then select the one your existing damage engine already counters.
+
+### Treating each choice independently
+
+Three individually manageable parts can combine into one bad matchup. Review all previous choices before confirming the next one.
+
+### Believing the build is specialized when it is not
+
+A few Acid or Slash bonuses do not prove the party has a functioning engine. Check which attacks actually produce the result and whether the relevant inventory survives a small rearrangement.
+
+### Spending mana throughout the biome
+
+Basic attacks do not consume mana, while abilities do. Using every ability in routine encounters can leave a sound Guardian plan without the resources needed to execute it.
+
+### Forgetting to rebuild after the last reward
+
+Adding one item changes the neighborhood around it. Re-check aura eligibility, awkward gaps, and every companion inventory before entering the final encounter.
+
+## What is the final pre-fight checklist?
+
+Use a short inspection rather than making one last speculative pivot:
+
+1. Name the Guardian property that most threatens the party.
+2. Identify the exact character and damage source that answers it.
+3. Confirm that the answering items are active in the inventory, not held in reserve.
+4. Move aura sources so their eligible beneficiaries actually touch them.
+5. Remove filler that blocks a stronger compact layout.
+6. Check health, mana, and usable consumables.
+7. Enter with one coherent plan instead of several incomplete themes.
+
+For the layout side of this inspection, use the [early equipment synergy guide](/items/early-equipment-synergies) and [inventory grid guide](/mechanics/inventory-grid-item-rotation).
+
+## Which Guardian details still need direct capture?
+
+The next evidence update should add a current-version table of all part names, exact effects, visible stat changes, and any phase-specific behavior. It should also record whether apparently similar effects stack additively or create a separate mechanic.
+
+Until those captures exist, this guide stays focused on the decision system that is visible and documented: three choices, one combined Guardian, and a selection method grounded in the party's real damage plan.
 
 ## Sources
 
-- [Lootbound on Steam](https://store.steampowered.com/app/3091140/Lootbound/)
-- [ArtDock — Lootbound](https://games.artdock.studio/lootbound)
+- [ArtDock — Lootbound](https://games.artdock.studio/lootbound) — official game overview and build-your-own final boss feature
+- [InsertCoins — Lootbound guide](https://insertcoins.press/en/articles/lootbound-guide) — three-biome structure, two-part choices, damage matching, resources, and common mistakes
+- [Lootbound on Steam](https://store.steampowered.com/app/3091140/Lootbound/) — current release and feature overview
+- [Game Design Library — Loot Management & Unique Final Boss System](https://www.youtube.com/watch?v=0EjlrCI00k8) — visual demonstration of inventory management and the Guardian system
