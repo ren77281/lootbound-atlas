@@ -25,6 +25,8 @@ export interface SiteConfig {
     youtube?: string;
     twitter?: string;
     reddit?: string;
+    /** Public repository issue tracker for site corrections and contact requests. */
+    github?: string;
   };
   /**
    * Canonical URLs about the GAME (Steam page, official site, Wikipedia entry…).
@@ -58,18 +60,21 @@ export interface SiteConfig {
 export const site: SiteConfig = {
   name: 'Lootbound Wiki',
   shortName: 'Lootbound',
-  description: 'Independent Lootbound guides for inventory layouts, item auras, companions, routes, dice choices, Guardian planning, and achievements.',
+  description:
+    'Independent Lootbound guides for inventory layouts, item auras, companions, routes, dice choices, Guardian planning, and achievements.',
   domain: 'gamefieldhq.com',
-  tagline: 'Guides, builds, and secrets for every Lootbound run',
-  legalNotice: 'Lootbound Wiki is a fan-made community site. Not affiliated with or endorsed by ArtDock.',
+  tagline: 'Guides, mechanics, and updates for every Lootbound run',
+  legalNotice:
+    'Lootbound Wiki is an independent fan-made guide site. Not affiliated with or endorsed by ArtDock.',
   social: {
     official: 'https://store.steampowered.com/app/3091140/Lootbound/',
+    github: 'https://github.com/ren77281/lootbound-atlas/issues',
   },
   game: {
     name: 'Lootbound',
     platform: 'Steam',
     developer: 'ArtDock',
-    genre: 'Inventory roguelike',
+    genre: 'inventory roguelike',
     releaseDate: '2026-08-14',
   },
   // og:image dims of the SHIPPED hero.webp — if you replace public/images/hero.webp,

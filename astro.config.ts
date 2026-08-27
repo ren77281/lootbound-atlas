@@ -8,6 +8,7 @@ import * as path from 'node:path';
 
 import { locales, defaultLocale } from './src/i18n/routing';
 import { CONTENT_TYPES } from './src/config/navigation';
+import { siteUrl } from './src/config/site';
 
 /**
  * Build a map of page path → lastmod ISO date, read from MDX frontmatter
@@ -28,7 +29,10 @@ import { CONTENT_TYPES } from './src/config/navigation';
  *
  * Plain fs scan at config time — `astro:content` is not importable here.
  */
-function buildLastmodMap(noindexPaths: Set<string>, coverage: Map<string, Set<string>>): Map<string, string> {
+function buildLastmodMap(
+  noindexPaths: Set<string>,
+  coverage: Map<string, Set<string>>,
+): Map<string, string> {
   const map = new Map<string, string>();
   const base = path.resolve('./src/content/wiki');
   if (!fs.existsSync(base)) return map;
@@ -57,7 +61,8 @@ function buildLastmodMap(noindexPaths: Set<string>, coverage: Map<string, Set<st
       const rel = path.relative(base, p).replace(/\.mdx$/, '');
       const [loc, cat, ...rest] = rel.split(path.sep);
       const slugPath = rest.join('/');
-      const articlePath = loc === defaultLocale ? `/${cat}/${slugPath}` : `/${loc}/${cat}/${slugPath}`;
+      const articlePath =
+        loc === defaultLocale ? `/${cat}/${slugPath}` : `/${loc}/${cat}/${slugPath}`;
       if (/^noindex:\s*true\s*$/m.test(fm)) {
         noindexPaths.add(articlePath);
         // The non-default-locale routes of a default-locale noindex article
@@ -103,7 +108,10 @@ function buildLastmodMap(noindexPaths: Set<string>, coverage: Map<string, Set<st
         if (!entry.endsWith('.md')) continue;
         const src = fs.readFileSync(path.join(dir, entry), 'utf8');
         const fm = src.split('---')[1] ?? '';
-        const iso = fm.match(/^updated:\s*(.+)$/m)?.[1]?.trim().replace(/['"]/g, '');
+        const iso = fm
+          .match(/^updated:\s*(.+)$/m)?.[1]
+          ?.trim()
+          .replace(/['"]/g, '');
         if (!iso) continue;
         const date = new Date(iso);
         if (Number.isNaN(date.getTime())) continue;
@@ -123,11 +131,21 @@ function buildLastmodMap(noindexPaths: Set<string>, coverage: Map<string, Set<st
   return map;
 }
 
-const siteOrigin = process.env.SITE_URL || 'https://anvilwiki.pages.dev';
+const siteOrigin = siteUrl;
 
 const noindexPaths = new Set<string>();
 const localeCoverage = new Map<string, Set<string>>();
 const lastmodMap = buildLastmodMap(noindexPaths, localeCoverage);
+
+// Empty category pages remain reachable for navigation and future content,
+// but should not be submitted for indexing until they contain a published
+// article. Draft-only categories are empty in production by definition.
+for (const locale of locales) {
+  for (const category of CONTENT_TYPES) {
+    const listPath = locale === defaultLocale ? `/${category}` : `/${locale}/${category}`;
+    if (!lastmodMap.has(listPath)) noindexPaths.add(listPath);
+  }
+}
 
 /**
  * Article/list hreflang alternates that match the page-level <head> truth.
@@ -168,7 +186,7 @@ function alternatesFor(pagePath: string): Array<{ lang: string; url: string }> |
 
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.SITE_URL || 'https://anvilwiki.pages.dev',
+  site: siteUrl,
   output: 'static',
   trailingSlash: 'never',
   image: {

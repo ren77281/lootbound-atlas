@@ -51,7 +51,7 @@ describe('SEO helpers', () => {
       const modified = new Date('2026-06-01');
       const withModified = articleJsonLd({
         title: 'T',
- description: 'Desc that is long enough for validation here.',
+        description: 'Desc that is long enough for validation here.',
         datePublished: published,
         dateModified: modified,
         category: 'bosses',
@@ -62,7 +62,7 @@ describe('SEO helpers', () => {
 
       const noModified = articleJsonLd({
         title: 'T',
- description: 'Desc that is long enough for validation here.',
+        description: 'Desc that is long enough for validation here.',
         datePublished: published,
         category: 'bosses',
         slug: 's',
@@ -108,9 +108,7 @@ describe('SEO helpers', () => {
 
   describe('faqPageJsonLd', () => {
     it('maps Q&A pairs to Question/Answer schema', () => {
-      const json = faqPageJsonLd([
-        { question: 'What is X?', answer: 'X is Y.' },
-      ]);
+      const json = faqPageJsonLd([{ question: 'What is X?', answer: 'X is Y.' }]);
       expect(json['@type']).toBe('FAQPage');
       expect(json.mainEntity[0]['@type']).toBe('Question');
       expect(json.mainEntity[0].acceptedAnswer.text).toBe('X is Y.');
@@ -118,10 +116,18 @@ describe('SEO helpers', () => {
   });
 
   describe('pageTitle', () => {
-    it('appends the site name with an em dash', () => {
-      const t = pageTitle('Hello');
-      expect(t).toContain('Hello');
-      expect(t).toContain('—');
+    it('appends the site name when the title is not already branded', () => {
+      expect(pageTitle('Hello')).toBe('Hello — Lootbound Wiki');
+    });
+
+    it('does not repeat the site or game name', () => {
+      expect(pageTitle('Lootbound Wiki')).toBe('Lootbound Wiki');
+      expect(pageTitle('Lootbound Beginner Guide')).toBe('Lootbound Beginner Guide');
+      expect(pageTitle('Beginner Guide — Lootbound Wiki')).toBe('Beginner Guide — Lootbound Wiki');
+    });
+
+    it('does not treat a partial word match as an existing brand', () => {
+      expect(pageTitle('Lootbounded Tips')).toBe('Lootbounded Tips — Lootbound Wiki');
     });
   });
 });

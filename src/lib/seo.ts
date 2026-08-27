@@ -246,11 +246,7 @@ export function imageObjectJsonLd(opts: { url: string; caption?: string; alt?: s
  * Eligible for Google Video search results. `uploadDate` is required by
  * Google; the article's publish date is the best available signal.
  */
-export function videoObjectJsonLd(opts: {
-  videoId: string;
-  title: string;
-  uploadDate: Date;
-}) {
+export function videoObjectJsonLd(opts: { videoId: string; title: string; uploadDate: Date }) {
   const { videoId, title, uploadDate } = opts;
   return {
     '@context': 'https://schema.org',
@@ -262,8 +258,24 @@ export function videoObjectJsonLd(opts: {
   };
 }
 
-/** Build the <title> string with consistent suffix. */
+/** Build the <title> string without repeating an existing site/game brand. */
 export function pageTitle(title: string): string {
+  const normalizedTitle = title.trim().toLocaleLowerCase();
+  const existingBrands = [site.name, site.game.name].map((brand) =>
+    brand.trim().toLocaleLowerCase(),
+  );
+
+  const containsBrand = existingBrands.some((brand) => {
+    const escapedBrand = brand.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return new RegExp(`(^|[^\\p{L}\\p{N}])${escapedBrand}(?=$|[^\\p{L}\\p{N}])`, 'u').test(
+      normalizedTitle,
+    );
+  });
+
+  if (containsBrand) {
+    return title;
+  }
+
   return `${title} — ${site.name}`;
 }
 
