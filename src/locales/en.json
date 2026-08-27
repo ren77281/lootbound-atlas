@@ -4,8 +4,8 @@
     "name": "Lootbound Wiki",
     "shortName": "Lootbound",
     "description": "Independent Lootbound guides for inventory layouts, item auras, companions, routes, dice choices, Guardian planning, and achievements.",
-    "tagline": "Guides, builds, and secrets for every Lootbound run",
-    "legalNotice": "Lootbound Wiki is a fan-made community site. Not affiliated with or endorsed by ArtDock."
+    "tagline": "Guides, mechanics, and updates for every Lootbound run",
+    "legalNotice": "Lootbound Wiki is an independent fan-made guide site. Not affiliated with or endorsed by ArtDock."
   },
   "nav": {
     "home": "Home",
@@ -28,7 +28,7 @@
     "lastUpdated": "Last updated",
     "publishedOn": "Published",
     "noArticles": "No articles yet. Check back soon!",
-    "defaultListDescription": "Browse every {title} article — walkthroughs, tips, tier lists and up-to-date reference tables, all in one place.",
+    "defaultListDescription": "Browse every {title} article — source-aware guides, current updates, and practical references in one place.",
     "relatedArticles": "Related Articles",
     "onThisPage": "On this page",
     "browseAll": "Browse all",
@@ -124,7 +124,7 @@
     },
     "builds": {
       "overviewTitle": "Lootbound Builds",
-      "overviewDescription": "Build planning for Lootbound classes, including Warrior, Paladin, Witch, Bard, and Jester playstyles."
+      "overviewDescription": "Versioned Lootbound build guides are published only after class skills, items, and balance details can be verified in the same game build."
     },
     "mechanics": {
       "overviewTitle": "Lootbound Mechanics",
@@ -154,16 +154,16 @@
       "title": "Most read",
       "quickLinks": [
         {
-          "label": "Guides",
-          "href": "/guides"
+          "label": "Beginner Guide",
+          "href": "/guides/beginner-guide"
         },
         {
-          "label": "Builds",
-          "href": "/builds"
+          "label": "Inventory Grid",
+          "href": "/mechanics/inventory-grid-item-rotation"
         },
         {
-          "label": "Mechanics",
-          "href": "/mechanics"
+          "label": "Patch Notes",
+          "href": "/updates"
         }
       ]
     },
@@ -182,14 +182,14 @@
     "hero": {
       "badge": "Lootbound",
       "title": "Lootbound Wiki",
-      "description": "Independent guides for inventory builds, classes, items, mechanics, secrets, and current updates.",
+      "description": "Independent, source-aware guides for inventory layouts, routes, dice choices, companions, achievements, and current updates.",
       "ctaPrimary": {
         "label": "Beginner guide",
-        "href": "/guides"
+        "href": "/guides/beginner-guide"
       },
       "ctaSecondary": {
-        "label": "Browse all",
-        "href": "/guides"
+        "label": "Browse mechanics",
+        "href": "/mechanics"
       }
     },
     "start": {
@@ -197,28 +197,28 @@
       "title": "New here?",
       "cards": [
         {
-          "title": "Guides",
-          "description": "First-run help, routes, achievements, and troubleshooting.",
+          "title": "Beginner Guide",
+          "description": "Start with the systems and decisions that shape a complete run.",
           "icon": "lucide:book-open",
-          "href": "/guides"
+          "href": "/guides/beginner-guide"
         },
         {
-          "title": "Builds",
-          "description": "Class-focused plans for turning drops into a coherent run.",
-          "icon": "lucide:book-open",
-          "href": "/builds"
+          "title": "Inventory and Auras",
+          "description": "Learn how placement, rotation, and adjacency affect equipment plans.",
+          "icon": "lucide:grid-3x3",
+          "href": "/mechanics/item-aura-adjacency"
         },
         {
-          "title": "Mechanics",
-          "description": "Inventory grids, auras, companions, dice rooms, and damage types.",
-          "icon": "lucide:book-open",
-          "href": "/mechanics"
+          "title": "Achievements",
+          "description": "Review all 20 Steam achievements and their verified unlock conditions.",
+          "icon": "lucide:trophy",
+          "href": "/guides/achievement-guide"
         },
         {
-          "title": "Items",
-          "description": "Equipment, rings, interactions, and placement decisions.",
-          "icon": "lucide:book-open",
-          "href": "/items"
+          "title": "Latest Updates",
+          "description": "Track official patch notes, release details, and verified changes.",
+          "icon": "lucide:newspaper",
+          "href": "/updates"
         }
       ]
     },
@@ -230,7 +230,7 @@
           "order": 1,
           "name": "Start a Lootbound run",
           "description": "Learn the systems that shape a run before chasing exact builds.",
-          "href": "/guides",
+          "href": "/guides/beginner-guide",
           "displayType": "steps",
           "highlights": [
             {
@@ -270,7 +270,7 @@
     "termsOfService": "Terms of Service",
     "copyright": "Copyright",
     "copyrightText": "© 2026 Lootbound Wiki. All rights reserved.",
-    "community": "Community",
+    "community": "Official game",
     "legal": "Legal"
   }
 }

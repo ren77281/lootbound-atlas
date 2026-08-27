@@ -17,36 +17,39 @@ const year = new Date().getFullYear();
   page === 'about' && (
     <>
       <p>
-        {site.name} is a fan-made community wiki dedicated to {game}, a {site.game.genre} on{' '}
-        {site.game.platform} developed by {site.game.developer}. Our mission is to provide accurate,
-        up-to-date guides, tips, and reference material to help players get the most out of the
-        game.
+        {site.name} is an independent fan-made guide site for {game}, a game in the{' '}
+        {site.game.genre} genre on {site.game.platform} developed by {site.game.developer}. It is
+        not an official wiki and is not operated by or affiliated with the developer.
       </p>
-      <h2>What We Cover</h2>
+      <h2>What You Can Find Here</h2>
       <ul>
-        <li>Boss strategies and attack patterns</li>
-        <li>Item locations, stats, and crafting recipes</li>
-        <li>Active redeemable codes (updated daily)</li>
-        <li>Tier lists and build recommendations</li>
-        <li>Progression guides for new and returning players</li>
+        <li>Beginner and first-run guides</li>
+        <li>Explanations of inventory, item, companion, and dice mechanics</li>
+        <li>Achievement and route references</li>
+        <li>Versioned summaries of official updates</li>
       </ul>
-      <h2>Community-Driven</h2>
+      <h2>How Content Is Reviewed</h2>
       <p>
-        This wiki is maintained by volunteers. If you spot an error or have content to contribute,
-        join our Discord and let us know. All content is freely accessible — no account required.
+        Pages are written from official announcements, publicly visible game information, and direct
+        gameplay observations. Sources are linked where practical, version-sensitive claims are
+        dated, and material that cannot yet be verified remains unpublished.
       </p>
-      <h2>Contact</h2>
-      <p>
-        Reach us via our{' '}
-        <a href={site.social.discord} target="_blank" rel="noopener noreferrer">
-          Discord server
-        </a>{' '}
-        or{' '}
-        <a href={site.social.official} target="_blank" rel="noopener noreferrer">
-          the game's official channels
-        </a>
-        .
-      </p>
+      <h2>Corrections and Questions</h2>
+      {site.social.github ? (
+        <p>
+          To report a factual error, outdated page, or source problem, open an issue in the{' '}
+          <a href={site.social.github} target="_blank" rel="noopener noreferrer">
+            site issue tracker
+          </a>
+          . For account, purchase, or technical support for the game itself, use the{' '}
+          <a href={site.social.official} target="_blank" rel="noopener noreferrer">
+            official game page
+          </a>
+          ; those channels are not operated by this site.
+        </p>
+      ) : (
+        <p>This site does not currently publish a direct contact channel.</p>
+      )}
     </>
   )
 }
@@ -70,8 +73,8 @@ const year = new Date().getFullYear();
       </p>
       <ul>
         <li>
-          <strong>Advertising partners</strong> (e.g. Google AdSense) — may use cookies to
-          serve relevant ads. You can opt out of personalized advertising via your browser settings.
+          <strong>Advertising partners</strong> (e.g. Google AdSense) — may use cookies to serve
+          relevant ads. You can opt out of personalized advertising via your browser settings.
         </li>
         <li>
           <strong>Analytics</strong> (e.g. Google Analytics, Cloudflare Web Analytics) — GA may
@@ -86,13 +89,13 @@ const year = new Date().getFullYear();
         <li>
           <strong>Comments</strong> (giscus, opt-in) — when the comment section is enabled,
           giscus.app loads an embedded GitHub view; viewing it exposes your IP address and browser
-          info to that service, and signing in to comment is handled by GitHub under its own
-          privacy policy.
+          info to that service, and signing in to comment is handled by GitHub under its own privacy
+          policy.
         </li>
         <li>
-          <strong>Embedded videos</strong> (YouTube) — pages with videos load thumbnail images
-          from i.ytimg.com and, after you press play, the YouTube player from youtube-nocookie.com.
-          Until you interact, no YouTube cookies are set.
+          <strong>Embedded videos</strong> (YouTube) — pages with videos load thumbnail images from
+          i.ytimg.com and, after you press play, the YouTube player from youtube-nocookie.com. Until
+          you interact, no YouTube cookies are set.
         </li>
       </ul>
       <h2>Cookies</h2>
@@ -157,26 +160,27 @@ const year = new Date().getFullYear();
   page === 'copyright' && (
     <>
       <h2>Copyright Notice</h2>
-      <p>
-        © {year} {site.name}. All original articles, guides, and written content on this site are
-        the intellectual property of {site.name} and its contributors.
-      </p>
+      <p>{`© ${year} ${site.name}. Unless otherwise credited, the original written guides and editorial material published on this site are protected by copyright.`}</p>
       <h2>Game Assets</h2>
       <p>
-        {game}, including its name, logo, characters, artwork, and other related assets, is the
-        property of {site.game.developer}. All {game} content is used on this wiki under fair use
-        for the purpose of providing informational guides to players. {site.name} claims no
-        ownership of any {game} intellectual property.
+        {game} names, logos, characters, screenshots, artwork, and related assets belong to their
+        respective owners, including {site.game.developer}. Their inclusion is for identification,
+        commentary, and informational reference. {site.name} claims no ownership of the game's
+        intellectual property.
       </p>
-      <h2>DMCA / Takedown</h2>
-      <p>
-        If you believe any content on this site infringes your copyright, please contact us via our{' '}
-        <a href={site.social.discord} target="_blank" rel="noopener noreferrer">
-          Discord server
-        </a>{' '}
-        with a detailed description of the allegedly infringing material. We will review and respond
-        to valid requests promptly.
-      </p>
+      <h2>Copyright Concerns</h2>
+      {site.social.github ? (
+        <p>
+          If you believe material on this site infringes your rights, open a request in the{' '}
+          <a href={site.social.github} target="_blank" rel="noopener noreferrer">
+            site issue tracker
+          </a>{' '}
+          and include the affected page URL, the work you represent, and the requested action. Do
+          not publish private identification or other sensitive information in a public issue.
+        </p>
+      ) : (
+        <p>This site does not currently publish a dedicated copyright request channel.</p>
+      )}
       <h2>Fan-Made Notice</h2>
       <p>{site.legalNotice}</p>
     </>
@@ -189,44 +193,34 @@ const year = new Date().getFullYear();
       {/* h2, not h1 — LegalPage already renders the page H1 (single-H1 rule). */}
       <h2>Contact {site.name}</h2>
       <p>
-        {site.name} is a community-run wiki. The fastest way to reach us or contribute is through
-        our community channels below.
+        Use the channel below for corrections, outdated information, broken links, and questions
+        about content published on this site.
       </p>
-      <h2>Community</h2>
-      <ul>
-        {site.social.discord && (
-          <li>
-            <strong>Discord:</strong>{' '}
-            <a href={site.social.discord} target="_blank" rel="noopener noreferrer">
-              Join our server
-            </a>
-          </li>
-        )}
-        {site.social.reddit && (
-          <li>
-            <strong>Reddit:</strong>{' '}
-            <a href={site.social.reddit} target="_blank" rel="noopener noreferrer">
-              r/{site.game.name.replace(/\s+/g, '')}
-            </a>
-          </li>
-        )}
-        {site.social.youtube && (
-          <li>
-            <strong>YouTube:</strong>{' '}
-            <a href={site.social.youtube} target="_blank" rel="noopener noreferrer">
-              {site.name} channel
-            </a>
-          </li>
-        )}
-      </ul>
-      <h2>Contributing</h2>
+      <h2>Site Feedback</h2>
+      {site.social.github ? (
+        <p>
+          Open an issue in the{' '}
+          <a href={site.social.github} target="_blank" rel="noopener noreferrer">
+            public site issue tracker
+          </a>
+          . Include the page URL, the correction you suggest, and a reliable source when available.
+          Do not include account details or other private information.
+        </p>
+      ) : (
+        <p>This site does not currently publish a direct feedback channel.</p>
+      )}
+      <h2>Official Game Support</h2>
       <p>
-        Found a typo or outdated info? Want to add a guide? This wiki is open source — submit changes
-        via pull requests or reach out on Discord.
+        This site cannot help with purchases, accounts, bugs, or other official support requests.
+        Visit the{' '}
+        <a href={site.social.official} target="_blank" rel="noopener noreferrer">
+          official {game} page
+        </a>{' '}
+        for developer-operated channels.
       </p>
-      <h2>Reporting Issues</h2>
+      <h2>Copyright Requests</h2>
       <p>
-        For copyright or takedown requests, see our{' '}
+        For copyright concerns and the information to include, read the{' '}
         <a href="/copyright">Copyright page</a>.
       </p>
     </>

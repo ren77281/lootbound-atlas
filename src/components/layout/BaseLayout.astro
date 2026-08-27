@@ -13,7 +13,7 @@
 import '~/styles/globals.css';
 import { site, siteUrl } from '~/config/site';
 import { defaultLocale, locales, OG_LOCALE_MAP, type Locale } from '~/i18n/routing';
-import { organizationJsonLd } from '~/lib/seo';
+import { organizationJsonLd, pageTitle } from '~/lib/seo';
 import JsonLd from '~/components/seo/JsonLd.astro';
 import CookieConsent from './CookieConsent.astro';
 import { getUi } from '~/i18n/ui';
@@ -79,8 +79,12 @@ const mainLocale = contentLocale ?? locale;
 const ogLocaleMap = OG_LOCALE_MAP as Record<string, string>;
 const ogLocale = ogLocaleMap[mainLocale] ?? mainLocale;
 
-const suffix = titleSuffix !== undefined ? titleSuffix : site.name;
-const fullTitle = suffix && !title.includes(suffix) ? `${title} — ${suffix}` : title;
+const fullTitle =
+  titleSuffix === undefined
+    ? pageTitle(title)
+    : titleSuffix && !title.includes(titleSuffix)
+      ? `${title} — ${titleSuffix}`
+      : title;
 const orgJsonLd = organizationJsonLd();
 
 // Strip ANY known locale prefix (built from routing.ts so new locales keep
