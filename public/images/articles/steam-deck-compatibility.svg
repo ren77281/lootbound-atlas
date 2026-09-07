@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+<rect width="1200" height="675" fill="#111827"/>
+<g font-family="Arial, sans-serif" fill="#f3f4f6"><text x="60" y="92" font-size="42" font-weight="bold">Steam Deck: check the default first</text>
+<rect x="60.0" y="205" width="344.0" height="250" rx="18" fill="#1f2937" stroke="#5eead4" stroke-width="2"/>
+<text x="84.0" y="290" font-size="32" fill="#fbbf24">1. Record</text>
+<text x="84.0" y="370" font-size="30">Current setting</text>
+<rect x="428.0" y="205" width="344.0" height="250" rx="18" fill="#1f2937" stroke="#5eead4" stroke-width="2"/>
+<text x="452.0" y="290" font-size="32" fill="#fbbf24">2. Disable</text>
+<text x="452.0" y="370" font-size="30">Forced tool</text>
+<rect x="796.0" y="205" width="344.0" height="250" rx="18" fill="#1f2937" stroke="#5eead4" stroke-width="2"/>
+<text x="820.0" y="290" font-size="32" fill="#fbbf24">3. Relaunch</text>
+<text x="820.0" y="370" font-size="30">Check symptom</text>
+<text x="60" y="540" font-size="28">Developer advice for launch problems; not a performance benchmark.</text>
+<text x="60" y="620" font-size="22" fill="#9ca3af">Editorial illustration • not a gameplay screenshot or test result</text></g></svg>
