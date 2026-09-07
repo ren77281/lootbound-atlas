@@ -91,3 +91,9 @@ export function slugifyTag(tag: string): string {
   // raw tag builds a raw-named directory that both URL forms resolve to.
   return slug || tag.trim();
 }
+
+/** 将 Astro 构建路径转换为 Cloudflare Pages 的无后缀公开路径。 */
+export function normalizePagePath(pathname: string): string {
+  if (pathname === '/index.html') return '/';
+  return pathname.replace(/\.html$/, '').replace(/\/+$/, '') || '/';
+}

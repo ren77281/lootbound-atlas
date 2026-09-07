@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import {
+  normalizePagePath,
   localizePath,
   listPath,
   detailPath,
@@ -119,5 +120,20 @@ describe('languageAlternates', () => {
     const alts = languageAlternates((loc) => detailPath('bosses', 'x', loc), [nonDefaultLocale]);
     expect(alts).toHaveLength(1);
     expect(alts[0].hreflang).toBe('ja');
+  });
+});
+
+describe('normalizePagePath', () => {
+  it.each([
+    ['/', '/'],
+    ['/index.html', '/'],
+    ['/guides/first-run.html', '/guides/first-run'],
+    ['/guides/first-run/', '/guides/first-run'],
+    ['/guides/first-run', '/guides/first-run'],
+    ['/ja/guides/first-run.html', '/ja/guides/first-run'],
+    ['/ja.html', '/ja'],
+    ['/tags/v1.2.html', '/tags/v1.2'],
+  ])('maps %s to the public path %s', (input, expected) => {
+    expect(normalizePagePath(input)).toBe(expected);
   });
 });
