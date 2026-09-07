@@ -446,15 +446,18 @@ const placeholder = search.placeholder ?? 'Search...';
               showSubResults: true,
               showImages: false,
               showEmptyFilters: false,
-              // Pagefind maps dist/<dir>/index.html → "/<dir>/" (trailing slash).
-              // The site uses trailingSlash:'never', so those URLs 404 on click.
-              // Strip the trailing slash from every result URL before render.
+              // Pagefind 的文件路径需转换为站内使用的无后缀、无尾斜杠网址。
               processResult: (result) => {
                 if (result?.url) {
-                  result.url = result.url.replace(/\/+$/, '') || '/';
+                  result.url = result.url.replace(/\.html(?=[?#]|$)/, '').replace(/\/+$/, '') || '/';
                 }
                 if (result?.meta?.url) {
-                  result.meta.url = result.meta.url.replace(/\/+$/, '') || '/';
+                  result.meta.url = result.meta.url.replace(/\.html(?=[?#]|$)/, '').replace(/\/+$/, '') || '/';
+                }
+                for (const subResult of result?.sub_results ?? []) {
+                  if (subResult.url) {
+                    subResult.url = subResult.url.replace(/\.html(?=[?#]|$)/, '').replace(/\/+(?=[?#]|$)/, '') || '/';
+                  }
                 }
                 return result;
               },
@@ -463,10 +466,7 @@ const placeholder = search.placeholder ?? 'Search...';
                 zero_results: noResults,
               },
             });
-            // processResult covers main results, but sub-results (nested
-            // anchors like /bosses/emberfang/#section) are rendered separately
-            // and still carry trailing slashes. Intercept all clicks inside
-            // the results area and rewrite the href on the fly.
+            // 兼容不同 Pagefind 版本，点击时兜底规范化结果地址。
             target.addEventListener('click', (e) => {
               const link = e.target.closest('a[href]');
               if (!link) return;
@@ -476,6 +476,7 @@ const placeholder = search.placeholder ?? 'Search...';
               // "/bosses/emberfang/" → "/bosses/emberfang"
               // "/bosses/emberfang/#anchor" → "/bosses/emberfang#anchor"
               const fixed = href
+                .replace(/\.html(?=[?#]|$)/, '')
                 .replace(/\/+(#|$)/, '$1')  // "/.../#anchor" → "/...#anchor", "/.../"  → "/..."
                 || '/';
               if (fixed !== href) {
