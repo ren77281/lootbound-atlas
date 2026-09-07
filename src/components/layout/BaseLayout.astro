@@ -14,6 +14,7 @@ import '~/styles/globals.css';
 import { site, siteUrl } from '~/config/site';
 import { defaultLocale, locales, OG_LOCALE_MAP, type Locale } from '~/i18n/routing';
 import { organizationJsonLd, pageTitle } from '~/lib/seo';
+import { normalizePagePath } from '~/lib/url';
 import JsonLd from '~/components/seo/JsonLd.astro';
 import CookieConsent from './CookieConsent.astro';
 import { getUi } from '~/i18n/ui';
@@ -86,6 +87,7 @@ const fullTitle =
       ? `${title} — ${titleSuffix}`
       : title;
 const orgJsonLd = organizationJsonLd();
+const currentPath = normalizePagePath(Astro.url.pathname);
 
 // Strip ANY known locale prefix (built from routing.ts so new locales keep
 // x-default pointing at the default-locale URL — a hardcoded en|ja list
@@ -101,7 +103,7 @@ const xDefaultHref = defaultAlt
   ? defaultAlt.href
   : alternates.length > 0
     ? alternates[0].href
-    : `${siteUrl}${Astro.url.pathname.replace(localePrefixRe, '')}`;
+    : `${siteUrl}${currentPath.replace(localePrefixRe, '')}`;
 
 // Optional analytics / verification / ads (env-var gated — empty = not injected).
 const gaId = import.meta.env.PUBLIC_GA_ID as string | undefined;
@@ -144,7 +146,7 @@ const privacyLabel = footerStrings.privacyPolicy ?? 'Privacy Policy';
          without this, covers never surface as large preview images (v2.0). */
       <meta name="robots" content="max-image-preview:large" />
     )}
-    <link rel="canonical" href={new URL(Astro.url.pathname, siteUrl).href} />
+    <link rel="canonical" href={new URL(currentPath, siteUrl).href} />
 
     {/* hreflang alternates */}
     {alternates.map((alt) => <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />)}
@@ -172,7 +174,7 @@ const privacyLabel = footerStrings.privacyPolicy ?? 'Privacy Policy';
         </>
       ) : null
     }
-    <meta property="og:url" content={new URL(Astro.url.pathname, siteUrl).href} />
+    <meta property="og:url" content={new URL(currentPath, siteUrl).href} />
     <meta property="og:site_name" content={site.name} />
     {/* OG wants language_TERRITORY (en_US / ja_JP), not a bare ISO code. */}
     <meta property="og:locale" content={ogLocale} />

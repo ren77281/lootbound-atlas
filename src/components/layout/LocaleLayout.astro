@@ -11,6 +11,7 @@ import SiteFooter from '~/components/footer/SiteFooter.astro';
 import StickyBanner from '~/components/ads/StickyBanner.astro';
 import { type Locale } from '~/i18n/routing';
 import { getUi } from '~/i18n/ui';
+import { normalizePagePath } from '~/lib/url';
 
 interface Props {
   locale: Locale;
@@ -33,7 +34,7 @@ interface Props {
   articleModified?: Date;
 }
 const { locale, availableLocales, ...rest } = Astro.props;
-const currentPath = Astro.url.pathname;
+const currentPath = normalizePagePath(Astro.url.pathname);
 const shared = getUi(locale).shared as unknown as Record<string, any>;
 ---
 

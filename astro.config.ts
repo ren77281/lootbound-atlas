@@ -189,6 +189,10 @@ export default defineConfig({
   site: siteUrl,
   output: 'static',
   trailingSlash: 'never',
+  build: {
+    // Cloudflare Pages 将 page.html 映射到 /page，避免目录产物强制补尾斜杠。
+    format: 'file',
+  },
   image: {
     // Emit explicit width/height on responsive <Image> output to prevent CLS.
     responsiveStyles: true,

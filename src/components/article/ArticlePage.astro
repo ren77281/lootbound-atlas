@@ -33,7 +33,7 @@ import { getRelatedEntries, getEntriesByCategory, isPossiblyOutdated, parseEntry
 import LazyYouTube from '~/components/video/LazyYouTube.astro';
 import SponsorCard from '~/components/article/SponsorCard.astro';
 import { articleJsonLd, breadcrumbJsonLd, pageTitle, videoObjectJsonLd, imageObjectJsonLd, faqPageJsonLd } from '~/lib/seo';
-import { listPath, detailPath, tagPath, homeUrl } from '~/lib/url';
+import { listPath, detailPath, tagPath, homeUrl, normalizePagePath } from '~/lib/url';
 import { site } from '~/config/site';
 import { getAuthor } from '~/config/authors';
 
@@ -446,7 +446,7 @@ const jsonLd = [
     <div class="hidden w-56 shrink-0 lg:block xl:w-64">
       <div class="sticky top-20 space-y-6">
         <TableOfContents headings={headings} heading={shared.onThisPage} />
-        <WikiSidebar locale={locale} currentPath={Astro.url.pathname} compact={true} />
+        <WikiSidebar locale={locale} currentPath={normalizePagePath(Astro.url.pathname)} compact={true} />
       </div>
     </div>
   </div>
